@@ -3,12 +3,10 @@ import { JumbotronContainer } from '../containers/jumbotron';
 import { FooterContainer } from '../containers/footer';
 import { FaqsContainer } from '../containers/faqs';
 
-export default function Home({ children , ...restProps }) {
+export default function SignUp({ children , ...restProps }) {
   return (
     <>
-      <JumbotronContainer />
-      <FaqsContainer />
-      <FooterContainer />
+      <h1>SIGN UP has not been implemented yet.</h1>
     </>
   );
 }
