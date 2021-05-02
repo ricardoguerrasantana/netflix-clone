@@ -1,11 +1,13 @@
 import React from 'react';
-import { JumbotronContainer } from '../containers/jumbotron';
-import { FooterContainer } from '../containers/footer';
 import { FaqsContainer } from '../containers/faqs';
+import { FooterContainer } from '../containers/footer';
+import { HeaderContainer } from '../containers/header';
+import { JumbotronContainer } from '../containers/jumbotron';
 
-export default function Home({ children , ...restProps }) {
+export default function Home() {
   return (
     <>
+      <HeaderContainer />
       <JumbotronContainer />
       <FaqsContainer />
       <FooterContainer />
