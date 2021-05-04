@@ -1,21 +1,40 @@
-import React , { useState } from 'react';
+import React , { useContext, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Form } from '../components';
 import * as ROUTES from '../constants/routes';
 import { singUpPage , global } from '../constants/ui-text';
+import { FirebaseContext } from '../context/firebase';
  
 export default function SignInBodyContainer() {
-  const [firstName , setFirstName] = useState();
-  const [emailAddress , setEmailAddress] = useState();
-  const [password , setPassword] = useState();
+  const history = useHistory();
+  const { firebase } = useContext(FirebaseContext);
+
+  const [firstName , setFirstName] = useState('');
+  const [emailAddress , setEmailAddress] = useState('');
+  const [password , setPassword] = useState('');
   const [error , setError] = useState('');
 
   const handleSignIn = (event) => {
     event.preventDefault();
 
-    // Firebase work here
+    return firebase
+      .auth()
+      .createUserWithEmailAndPassword(emailAddress , password)
+      .then((result) => 
+        result.user
+          .updateProfile({
+            displayName: firstName , 
+            photoURL: Math.floor(Math.random() * 5) + 1 , 
+          })
+          .then(() => {
+            history.push(ROUTES.BROWSE);
+          }))
+      .catch((error) => {
+        setError(error.message);
+      });
   };
   
-  const isInvalid = password === '' || emailAddress === '' || firstName === '';
+  let isInvalid = password === '' || emailAddress === '' || firstName === '';
 
   return (
     <Form>
@@ -26,19 +45,19 @@ export default function SignInBodyContainer() {
         <Form.Input  
           placeholder={global.firstNamePlaceholder}
           value={firstName} 
-          OnChange={({ target }) => setFirstName(target.value)}
+          onChange={({ target }) => setFirstName(target.value)}
         />
         <Form.Input  
           placeholder={global.emailPlaceholder}
           value={emailAddress} 
-          OnChange={({ target }) => setEmailAddress(target.value)}
+          onChange={({ target }) => setEmailAddress(target.value)}
         />
         <Form.Input 
           type="password"  
           placeholder={global.passwordPlaceholder} 
           autoComplete="off" 
           value={password} 
-          OnChange={({ target }) => setPassword(target.value)}
+          onChange={({ target }) => setPassword(target.value)}
         />
 
         <Form.Text>
