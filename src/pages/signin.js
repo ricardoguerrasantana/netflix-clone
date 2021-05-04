@@ -1,12 +1,17 @@
 import React from 'react';
-import { JumbotronContainer } from '../containers/jumbotron';
-import { FooterContainer } from '../containers/footer';
-import { FaqsContainer } from '../containers/faqs';
+import { 
+  HeaderContainer , 
+  FooterContainer, 
+  SignInContainer
+} from '../containers';
 
-export default function SignIn({ children , ...restProps }) {
+export default function SignIn() {
   return (
     <>
-      <h1>SIGN IN has not been implemented yet.</h1>
+      <HeaderContainer>
+        <SignInContainer />
+      </HeaderContainer>
+      <FooterContainer />
     </>
   );
 }
