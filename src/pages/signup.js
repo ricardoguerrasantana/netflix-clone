@@ -5,7 +5,7 @@ import {
   SignUpContainer
 } from '../containers';
 
-export default function SignIn() {
+export default function SignUp() {
   return (
     <>
       <HeaderContainer>
