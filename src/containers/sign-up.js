@@ -29,8 +29,8 @@ export default function SignInBodyContainer() {
           .then(() => {
             history.push(ROUTES.BROWSE);
           }))
-      .catch((error) => {
-        setError(error.message);
+      .catch((err) => {
+        setError(err.message);
       });
   };
   
