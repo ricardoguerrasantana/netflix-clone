@@ -1,4 +1,5 @@
 export { default as BarContainer } from './bar';
+export { default as BrowseContainer } from './browse';
 export { default as FaqsContainer } from './faqs';
 export { default as FeatureContainer } from './feature';
 export { default as FooterContainer } from './footer';

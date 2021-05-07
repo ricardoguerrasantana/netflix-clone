@@ -1,3 +1,4 @@
+import Debug from 'debug';
 import React from 'react';
 import { BrowserRouter as Router , Route } from 'react-router-dom';
 import { 
@@ -9,13 +10,13 @@ import {
 import * as ROUTES from './constants/routes';
 import { IsUserRedirect, ProtectedRoute } from './helpers/routes';
 import { useAuthListener } from './hooks';
-// import Debug from 'debug';
 
-// const debug = Debug('dev');
+const log = Debug('App:App');
+log.log = console.log.bind(console);
 
 export default function App() {
   const { user } = useAuthListener();
-  // debug(user);
+  log('user' , user);
 
   return (
     <Router>

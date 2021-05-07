@@ -6,6 +6,9 @@ import { GlobalStyles } from './global-styles';
 import { firebase } from './lib/firebase.prod';
 import { FirebaseContext } from './context/firebase';
 
+localStorage.debug = `App:*`;
+// localStorage.removeItem('debug');
+
 render(<>
   <FirebaseContext.Provider value={{ firebase }}>
     <GlobalStyles />

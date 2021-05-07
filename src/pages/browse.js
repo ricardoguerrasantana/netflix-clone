@@ -1,12 +1,22 @@
+import Debug from 'debug';
 import React from 'react';
-import { JumbotronContainer } from '../containers/jumbotron';
-import { FooterContainer } from '../containers/footer';
-import { FaqsContainer } from '../containers/faqs';
+import { BrowseContainer } from '../containers';
+import { useContent } from '../hooks';
+import selectionFilter from '../utils/selection-filter';
 
-export default function Browse({ children , ...restProps }) {
+const log = Debug('App:BrowsePage');
+log.log = console.log.bind(console);
+
+export default function Browse() {
+  const data = {};
+  Object.assign(data , useContent('series'));
+  Object.assign(data , useContent('films'));
+  log('data' , data);
+
+  const slides = selectionFilter(data);
+  log({ slides });
+
   return (
-    <>
-      <h1>BROWSE has not been implemented yet.</h1>
-    </>
+    <BrowseContainer slides={slides} />
   );
 }

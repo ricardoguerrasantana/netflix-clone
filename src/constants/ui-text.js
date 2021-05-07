@@ -21,3 +21,42 @@ export const singUpPage = {
   } ,
   textSmall: "This page is protected by Google reCAPTCHA to ensure you're not a bot. Learn more."
 };
+
+export const browsePage = {
+  slides: {
+    series: [
+      {
+        title: 'Documentaries' , 
+      } , 
+      {
+        title: 'Comedies' , 
+      } , 
+      {
+        title: 'Children' , 
+      } , 
+      {
+        title: 'Crime' , 
+      } , 
+      {
+        title: 'Feel Good' , 
+      } ,
+    ] , 
+    films: [
+      {
+        title: 'Drama' , 
+      } , 
+      {
+        title: 'Thriller' , 
+      } , 
+      {
+        title: 'Children' , 
+      } , 
+      {
+        title: 'Suspense' , 
+      } , 
+      {
+        title: 'Romance' , 
+      } ,
+    ] , 
+  }
+};
