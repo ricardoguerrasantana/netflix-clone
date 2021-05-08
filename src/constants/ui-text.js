@@ -10,6 +10,7 @@ export const global = {
     "/images/users/4.png" , 
     "/images/users/5.png" , 
   ] , 
+  spinnerImg: "/images/misc/spinner.png" , 
 };
 
 export const singInPage = {

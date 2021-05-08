@@ -22,10 +22,7 @@ Profiles.Name = function ProfilesName({ children , ...rest }) {
 }
 
 Profiles.Picture = function ProfilesPicture({ src , ...rest }) {
-  return <Picture 
-    {...rest} 
-    src={src ? src : browsePage.defaultProfileImg} 
-    />;
+  return <Picture src={src ? src : browsePage.defaultProfileImg} />;
 }
 
 Profiles.Title = function ProfilesTitle({ children , ...rest }) {

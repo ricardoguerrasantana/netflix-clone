@@ -13,7 +13,10 @@ export default function ProfilesContainer({ user , setProfile }) {
     <Profiles>
       <Profiles.Title>{browsePage.title}</Profiles.Title>
       <Profiles.List>
-        <Profiles.Item>
+        <Profiles.Item onClick={() => setProfile({
+          displayName: user.displayName ,  
+          photoURL: user.photoURL ,  
+        })} >
           <Profiles.Picture src={user.photoURL} />
           <Profiles.Name>{user.displayName}</Profiles.Name>
         </Profiles.Item>
