@@ -1,7 +1,15 @@
 export const global = {
+  company: "Netflix" , 
   emailPlaceholder: "Email Address" ,
   passwordPlaceholder: "password" ,
-  firstNamePlaceholder: "First name"
+  firstNamePlaceholder: "First name" , 
+  profilePhotoURLs: [
+    "/images/users/1.png" , 
+    "/images/users/2.png" , 
+    "/images/users/3.png" , 
+    "/images/users/4.png" , 
+    "/images/users/5.png" , 
+  ] , 
 };
 
 export const singInPage = {
@@ -23,6 +31,8 @@ export const singUpPage = {
 };
 
 export const browsePage = {
+  title: "Who's watching?" , 
+  defaultProfileImg: '/images/misc/loading.gif' , 
   slides: {
     series: [
       {

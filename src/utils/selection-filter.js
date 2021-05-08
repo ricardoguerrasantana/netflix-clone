@@ -7,14 +7,18 @@ export default function selectionFilter(data) {
     
     const content = genre_list.map(genre => {
     
-      const items = data[format].filter((item) => {
-        return item.genre === genre.title.toLowerCase().trim().replace(/ /g, '-');
-      });
-      
-      return {
-        title: genre.title , 
-        items: items , 
-      };
+      if (data[format]) {
+        const items = data[format].filter((item) => {
+          return item.genre === genre.title.toLowerCase().trim().replace(/ /g, '-');
+        });
+        
+        return {
+          title: genre.title , 
+          items: items , 
+        };
+      }
+
+      return [];
     
     });
     

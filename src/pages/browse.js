@@ -9,12 +9,12 @@ log.log = console.log.bind(console);
 
 export default function Browse() {
   const data = {};
-  Object.assign(data , useContent('series'));
-  Object.assign(data , useContent('films'));
+  // Object.assign(data , useContent('series')); // Read operation
+  // Object.assign(data , useContent('films')); // Read operation
   log('data' , data);
 
   const slides = selectionFilter(data);
-  log({ slides });
+  log('slides' , slides);
 
   return (
     <BrowseContainer slides={slides} />

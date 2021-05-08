@@ -11,11 +11,13 @@ import * as ROUTES from './constants/routes';
 import { IsUserRedirect, ProtectedRoute } from './helpers/routes';
 import { useAuthListener } from './hooks';
 
-const log = Debug('App:App');
+const log = Debug('App:Application');
 log.log = console.log.bind(console);
 
 export default function App() {
-  const { user } = useAuthListener();
+  // const user = {};
+  const { user } = useAuthListener(); // Read operation
+  // const user = null;
   log('user' , user);
 
   return (

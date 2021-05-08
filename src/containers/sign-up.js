@@ -24,7 +24,7 @@ export default function SignInBodyContainer() {
         result.user
           .updateProfile({
             displayName: firstName , 
-            photoURL: Math.floor(Math.random() * 5) + 1 , 
+            photoURL: global.profilePhotoURLs[Math.floor(Math.random() * 5)] , 
           })
           .then(() => {
             history.push(ROUTES.BROWSE);
