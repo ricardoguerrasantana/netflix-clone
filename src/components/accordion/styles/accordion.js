@@ -29,6 +29,7 @@ export const Inner = styled.div`
   padding: 70px 45px;
   flex-direction: column;
   max-width: 815px;
+  width: 100%; // important always difined a 100% width with max-width otherwise words get tight up.
   margin: auto;
 `;
 

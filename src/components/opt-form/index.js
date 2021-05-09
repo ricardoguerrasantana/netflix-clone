@@ -2,10 +2,13 @@ import React from 'react';
 
 import {
   Container ,
-  Input , 
+  Break , 
   Button , 
+  Capsule , 
+  Input , 
   Text ,
-  Break
+  Title , 
+  SubTitle ,
 } from './styles/opt-form';
 
 export default function OptForm({ children , ...restProps }) {
@@ -13,10 +16,6 @@ export default function OptForm({ children , ...restProps }) {
     <Container {...restProps}>{children}</Container>
   );  
 }
-
-OptForm.Input = function OptFormInput({ ...restProps }) {
-  return <Input {...restProps} />;
-};
 
 OptForm.Button = function OptFormButton({ children, ...restProps }) {
   return (
@@ -26,10 +25,26 @@ OptForm.Button = function OptFormButton({ children, ...restProps }) {
   );
 };
 
+OptForm.Break = function OptFormBreak({ children, ...restProps }) {
+  return <Break {...restProps} />;
+};
+
+OptForm.Capsule = function OptFormCapsule({ children, ...restProps }) {
+  return <Capsule {...restProps} >{children}</Capsule>;
+};
+
+OptForm.Input = function OptFormInput({ ...restProps }) {
+  return <Input {...restProps} />;
+};
+
 OptForm.Text = function OptFormText({ children, ...restProps }) {
   return <Text {...restProps}>{children}</Text>;
 };
 
-OptForm.Break = function OptFormBreak({ children, ...restProps }) {
-  return <Break {...restProps} />;
-};
+OptForm.Title = function OptFormTitle({ children , ...restProps }) {
+  return <Title {...restProps}>{children}</Title>
+}
+
+OptForm.SubTitle = function OptFormSubTitle({ children , ...restProps }) {
+  return <SubTitle {...restProps}>{children}</SubTitle>
+}

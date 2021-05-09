@@ -13,6 +13,46 @@ export const global = {
   spinnerImg: "/images/misc/spinner.png" , 
 };
 
+export const homePage = {
+  homeBg: "/images/misc/home-bg.jpg" , 
+  faqsTitle: "Frequently Asked Questions" , 
+  optFormButton: "Try it now" , 
+  optFormTitle: "Unlimited films, TV programmes and more." , 
+  optFormSubTitle: "Watch anywhere. Cancel at any time." , 
+  optFormText: "Ready to watch? Enter your email to create or restart your membership" , 
+  footerTitle: "Questions? Contact us." , 
+  links: [
+    [
+      "FAQ" , 
+      "Investors Relations" , 
+      "Ways to Watch" , 
+      "Coporate Information" , 
+      "Netflix Originals" , 
+    ] , 
+    [
+      "Help Centre" , 
+      "Jobs" , 
+      "Terms of Use" , 
+      "Coporate Information" , 
+      "Contact Us" , 
+    ] , 
+    [
+      "Account" , 
+      "Redeem Gift Cards" , 
+      "Privacy" , 
+      "Speed Test" , 
+    ] , 
+    [
+      "Media Centre" , 
+      "Buy Gift Cards" , 
+      "Cookie Preferences" , 
+      "Coporate Information" , 
+      "Legal Notices" , 
+    ] , 
+  ] ,
+  copyRight: "Netflix United Kingdom" , 
+}
+
 export const singInPage = {
   main: "Sign In",
   text: {
@@ -34,6 +74,9 @@ export const singUpPage = {
 export const browsePage = {
   title: "Who's watching?" , 
   defaultProfileImg: '/images/misc/loading.gif' , 
+  browseBg: "/images/misc/joker1.jpg" , 
+  callOut: "Watch Joker Now" ,
+  description: "Forever alone in a crowd, failed comedian Arthur Fleck seeks connection as he walks the streets of Gotham City. Arthur wears two masks -- the one he paints for his day job as a clown, and the guise he projects in a futile attempt to feel like he's part of the world around him." , 
   slides: {
     series: [
       {

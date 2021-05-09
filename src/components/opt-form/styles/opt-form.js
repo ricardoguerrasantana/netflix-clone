@@ -1,25 +1,9 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 export const Container = styled.div`
   display: flex;
-  justify-content: center;
-  height: 100%;
-  margin-top: 20px;
-  flex-wrap: wrap;
-
-  @media (max-width: 1000px) {
-    flex-direction: column;
-    align-items: center;
-  }
-`;
-
-export const Input = styled.input`
-  max-width: 450px;
-  width: 100%;
-  border: 0;
-  padding: 10px;
-  height: 70px;
-  box-sizing: border-box;
+  flex-direction: column;
+  text-align: center;
 `;
 
 export const Button = styled.button`
@@ -33,11 +17,12 @@ export const Button = styled.button`
   font-size: 26px;
   border: 0;
   cursor: pointer;
-
+  text-align: center;
+  
   &:hover {
     background: #f40612;
   }
-
+  
   @media (max-width: 1000px) {
     height: 50px;
     font-size: 16px;
@@ -56,6 +41,31 @@ export const Button = styled.button`
   }
 `;
 
+export const Break = styled.div`
+  flex-basis: 100%;
+  height: 0;
+`;
+
+export const Capsule = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  
+  @media (max-width: 1000px) {
+    flex-direction: column;
+  }
+`;
+
+export const Input = styled.input`
+  max-width: 450px;
+  width: 100%;
+  border: 0;
+  padding: 10px;
+  height: 70px;
+  box-sizing: border-box;
+`;
+
 export const Text = styled.p`
   font-size: 19.2px;
   color: white;
@@ -63,11 +73,29 @@ export const Text = styled.p`
 
   @media (max-width: 600px) {
     font-size: 16px;
-    line-height:22px;
+    line-height: 22px;
   }
 `;
 
-export const Break = styled.div`
-  flex-basis: 100%;
-  height: 0;
+export const Title = styled.h1`
+  color: white;
+  max-width: 640px;
+  font-size: 50px;
+  font-weight: 500;
+  margin: auto;
+  
+  @media (max-width: 600px) {
+    font-size: 35px;
+  }
+`;
+
+export const SubTitle = styled.h2`
+  color: white;
+  font-size: 26px;
+  font-weight: normal;
+  margin: 16px auto;
+
+  @media (max-width: 600px) {
+    font-size: 18px;
+  }
 `;

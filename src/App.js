@@ -16,8 +16,8 @@ log.log = console.log.bind(console);
 
 export default function App() {
   // const user = {};
-  const { user } = useAuthListener(); // Read operation
-  // const user = null;
+  // const { user } = useAuthListener(); // Read operation
+  const user = null;
   log('user' , user);
 
   return (

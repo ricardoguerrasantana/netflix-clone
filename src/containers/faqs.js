@@ -2,11 +2,12 @@ import React from 'react';
 import { OptFormContainer } from '../containers';
 import { Accordion } from '../components';
 import faqsData from '../fixtures/faqs.json';
+import { homePage } from '../constants/ui-text';
 
 export default function FaqsContainer() {
   return (
     <Accordion>
-      <Accordion.Title>Frequently Asked Questions</Accordion.Title>
+      <Accordion.Title>{homePage.faqsTitle}</Accordion.Title>
       <Accordion.Frame>
         {faqsData.map((item) => (
           <Accordion.Item key={item.id}>
@@ -16,7 +17,10 @@ export default function FaqsContainer() {
         ))}
       </Accordion.Frame>
       
-      <OptFormContainer />
+      <OptFormContainer 
+        hTitle={true} 
+        hSubTitle={true} 
+      />
     </Accordion>
   );
 }

@@ -2,7 +2,8 @@ import Debug from 'debug';
 import React, { useContext, useEffect, useState } from "react";
 import { 
   ProfilesContainer , 
-  LoadingContainer , 
+  LoadingContainer, 
+  ContentsContainer, 
 } from "../containers";
 import { FirebaseContext } from "../context/firebase";
 
@@ -18,7 +19,7 @@ export default function BrowseContainer({ slides }) {
   log('user' , user);
 
   return profile.displayName ? (
-    loading ? <LoadingContainer src={profile.photoURL} setLoading={setLoading} /> : null
+    loading ? <LoadingContainer src={profile.photoURL} setLoading={setLoading} /> : <ContentsContainer />
   ) : (
     <ProfilesContainer user={user} setProfile={setProfile} />
   );

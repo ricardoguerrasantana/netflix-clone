@@ -1,5 +1,6 @@
 export { default as Accordion } from './accordion';
 export { default as Bar } from './bar';
+export { default as Contents } from './contents';
 export { default as Feature} from './feature';
 export { default as Footer } from './footer';
 export { default as Form } from './form';

@@ -1,11 +1,13 @@
 export { default as BarContainer } from './bar';
 export { default as BrowseContainer } from './browse';
+export { default as ContentsContainer } from './contents';
 export { default as FaqsContainer } from './faqs';
 export { default as FeatureContainer } from './feature';
 export { default as FooterContainer } from './footer';
 export { default as HeaderContainer } from './header';
 export { default as JumbotronContainer } from './jumbotron';
 export { default as LoadingContainer } from './loading';
+export { default as MainContainer } from './main';
 export { default as OptFormContainer } from './opt-form';
 export { default as ProfilesContainer } from './profiles';
 export { default as SignInContainer } from './sign-in';
