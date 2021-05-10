@@ -75,7 +75,13 @@ export const browsePage = {
   title: "Who's watching?" , 
   defaultProfileImg: '/images/misc/loading.gif' , 
   browseBg: "/images/misc/joker1.jpg" , 
+  seriesLink: "Series" , 
+  filmsLink: "Films" , 
   callOut: "Watch Joker Now" ,
+  searchIconURL: "/images/icons/search.png" , 
+  searchPlaceholder: "Search films and series" , 
+  searchIconAlt: "Search" , 
+  signOutLink: "Sign Out" , 
   description: "Forever alone in a crowd, failed comedian Arthur Fleck seeks connection as he walks the streets of Gotham City. Arthur wears two masks -- the one he paints for his day job as a clown, and the guise he projects in a futile attempt to feel like he's part of the world around him." , 
   slides: {
     series: [

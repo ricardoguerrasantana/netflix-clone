@@ -18,8 +18,8 @@ export default function FaqsContainer() {
       </Accordion.Frame>
       
       <OptFormContainer 
-        hTitle={true} 
-        hSubTitle={true} 
+        hideTitle 
+        hideSubTitle 
       />
     </Accordion>
   );

@@ -19,7 +19,7 @@ export default function BrowseContainer({ slides }) {
   log('user' , user);
 
   return profile.displayName ? (
-    loading ? <LoadingContainer src={profile.photoURL} setLoading={setLoading} /> : <ContentsContainer />
+    loading ? <LoadingContainer src={profile.photoURL} setLoading={setLoading} /> : <ContentsContainer profile={profile} />
   ) : (
     <ProfilesContainer user={user} setProfile={setProfile} />
   );
