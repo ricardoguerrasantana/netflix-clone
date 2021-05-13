@@ -11,6 +11,7 @@ export const global = {
     "/images/users/5.png" , 
   ] , 
   spinnerImg: "/images/misc/spinner.png" , 
+  closeIconSrc: "/images/icons/close.png"
 };
 
 export const homePage = {

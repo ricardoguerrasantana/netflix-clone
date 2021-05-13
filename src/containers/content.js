@@ -1,17 +1,26 @@
 import React, { useContext, useState } from 'react';
+import { FooterContainer } from '../containers';
 import { 
   Bar,
-  Contents , 
+  SlideRow,
+  Content , 
   Feature , 
   Header , 
 } from '../components';
 import { browsePage } from '../constants/ui-text';
 import { FirebaseContext } from '../context/firebase';
 
-export default function ContentsContainer({ children  , profile , ...rest }) {
+export default function ContentContainer({ 
+  category , 
+  setCategory , 
+  profile , 
+  slideRows , 
+  children  , 
+  ...rest 
+}) {
   const { firebase } = useContext(FirebaseContext);
 
-  return (
+  return (<>
     <Header 
       src={browsePage.browseBg}
       dontShowOnSmallViewPort
@@ -19,8 +28,26 @@ export default function ContentsContainer({ children  , profile , ...rest }) {
       <Bar>
         <Bar.Group>
           <Bar.Logo />
-          <Bar.Link>{browsePage.seriesLink}</Bar.Link>
-          <Bar.Link>{browsePage.filmsLink}</Bar.Link>
+          <Bar.Link 
+            selected={ 
+              (category === browsePage.seriesLink.toLowerCase()) ? 
+              true : false }
+            onClick={() => {
+              setCategory(category => browsePage.seriesLink.toLowerCase())
+            }}
+          >
+            {browsePage.seriesLink}
+          </Bar.Link>
+          <Bar.Link 
+            selected={ 
+              (category === browsePage.filmsLink.toLowerCase()) ? 
+              true : false }
+            onClick={() => {
+              setCategory(category => browsePage.filmsLink.toLowerCase())
+            }}
+          >
+            {browsePage.filmsLink}
+          </Bar.Link>
         </Bar.Group>
         <Bar.Group>
           <Bar.Search />
@@ -46,5 +73,15 @@ export default function ContentsContainer({ children  , profile , ...rest }) {
         <Feature.Button>Play</Feature.Button>
       </Feature.Inner>
     </Header>
-  );
+    <SlideRow.Section>
+      {slideRows.map(slideRow => (
+        <SlideRow 
+          key={slideRow.title.toLowerCase().trim().replace(/ /g , '-')} 
+          category={category}
+          slideRow={slideRow}
+        />
+      ))}
+    </SlideRow.Section>
+    <FooterContainer />
+  </>);
 } 

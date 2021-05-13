@@ -39,7 +39,7 @@ export const Link = styled.p`
   color: white;
   text-decoration: none;
   margin: 0 30px 0 0;
-  font-weight: normal;
+  font-weight: ${({ selected }) => (selected === true ? 'bold' : 'normal')};
   cursor: pointer;
   
   &:hover {

@@ -1,6 +1,6 @@
 export { default as BarContainer } from './bar';
 export { default as BrowseContainer } from './browse';
-export { default as ContentsContainer } from './contents';
+export { default as ContentContainer } from './content';
 export { default as FaqsContainer } from './faqs';
 export { default as FooterContainer } from './footer';
 export { default as HeaderContainer } from './header';
