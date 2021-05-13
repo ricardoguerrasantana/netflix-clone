@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState } from 'react';
 import { global } from '../../constants/ui-text';
+import { Player } from '../../components';
 import {
   Container , 
   Card , 
@@ -105,8 +106,7 @@ SlideRow.Focus = function SlideRowFocus({ category , children , ...rest }) {
             {itemFocus.genre.charAt(0).toUpperCase() + itemFocus.genre.slice(1)}
           </MaturityText>
         </FocusMaturity>
-
-        {children}
+        <Player />
       </FocusInfo>
     </Focus>
     ) : null;

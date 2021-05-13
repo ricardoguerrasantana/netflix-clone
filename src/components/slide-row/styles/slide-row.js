@@ -156,7 +156,7 @@ export const Focus = styled(FlexRowDiv)`
   background-repeat: no-repeat;
   background-position-x: right;
   position: relative;
-  height: 360px;
+  // height: 360px;
 
   @media (max-width: 900px) {
     height: auto;
@@ -189,17 +189,19 @@ export const Item = styled.div`
 
 `;
 
-export const MaturityGrade = styled(FlexColDiv)`
+export const MaturityGrade = styled.button`
 background-color: ${({ rating }) => (rating >= 15 ? 'red' : 'green')};
 border-radius: 15px;
-// border: 0;
+border: 0;
 margin: 0;
 padding: 6px 5px 5px 5px;
 width: 30px;
 // line-height: 1;
 // height: 30px;
-text-align: center;
-// align-items: center;
+// text-align: center;
+display: flex;
+align-items: center;
+justify-content: center;
 font-size: 12px;
 margin-right: 10px;
 color: white;
