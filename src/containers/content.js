@@ -3,7 +3,6 @@ import { FooterContainer } from '../containers';
 import { 
   Bar,
   SlideRow,
-  Content , 
   Feature , 
   Header , 
 } from '../components';
@@ -15,7 +14,6 @@ export default function ContentContainer({
   setCategory , 
   profile , 
   slideRows , 
-  children  , 
   ...rest 
 }) {
   const { firebase } = useContext(FirebaseContext);
@@ -50,7 +48,7 @@ export default function ContentContainer({
           </Bar.Link>
         </Bar.Group>
         <Bar.Group>
-          <Bar.Search />
+          <Bar.Search {...rest} />
           <Bar.Profile>
             <Bar.Picture src={profile.photoURL}/>
             <Bar.Dropdown>

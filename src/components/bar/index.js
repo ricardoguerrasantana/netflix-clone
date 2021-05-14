@@ -1,4 +1,4 @@
-import React , { useState } from 'react';
+import React , { useEffect, useState } from 'react';
 import { Link as ReactRouterLink } from 'react-router-dom';
 import {
   Container , 
@@ -62,9 +62,13 @@ Bar.Picture = function BarPicture({ children , src , ...rest }) {
   return <Picture src={src} >{children}</Picture>;
 }
 
-Bar.Search = function BarSearch({ src , children , ...rest }) {
+Bar.Search = function BarSearch({ 
+  src , 
+  term , 
+  setTerm , 
+  ...rest 
+}) {
   const [displayInput , setDisplayInput] = useState(false);
-  const [term , setTerm] = useState('');
 
   return (
     <Search {...rest}>
@@ -72,8 +76,8 @@ Bar.Search = function BarSearch({ src , children , ...rest }) {
         onClick={() => setDisplayInput((displayInput) => !displayInput)}
       >
         <img 
-        src={browsePage.searchIconURL} 
-        alt={browsePage.searchIconAlt}
+          src={browsePage.searchIconURL} 
+          alt={browsePage.searchIconAlt}
         />
       </Icon>
       <Input 

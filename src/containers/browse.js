@@ -1,4 +1,5 @@
 import Debug from 'debug';
+import Fuse from 'fuse.js';
 import React, { useContext, useEffect, useState } from "react";
 import { 
   ProfilesContainer , 
@@ -15,6 +16,7 @@ export default function BrowseContainer({ slides }) {
   const [category , setCategory] = useState('series');
   const [profile , setProfile] = useState({});
   const [loading , setLoading] = useState(true);
+  const [term , setTerm] = useState('');
 
   const { firebase } = useContext(FirebaseContext);
   // const user = {};
@@ -25,16 +27,34 @@ export default function BrowseContainer({ slides }) {
     setSlideRows(slideRows => slides[category]);
   } , [slides , category]);
 
-  // return profile.displayName ? (
-  //   loading ? 
-  //   <LoadingContainer src={profile.photoURL} setLoading={setLoading} /> : 
-    return <ContentContainer 
+  useEffect(() => {
+    const fuse = new Fuse(slideRows , {
+      keys: [
+        'items.description' , 
+        'items.title' , 
+        'items.genre' , 
+      ]
+    });
+    const search = fuse.search(term).map(({ item }) => item);
+    if (slideRows.length > 0 && term.length > 3 && search.length > 0) {
+      setSlideRows(prevSlideRows => search);
+    } else {
+      setSlideRows(prevSlideRows => slides[category]);
+    }
+  }, [term]);
+
+return profile.displayName ? (
+    loading ? 
+    <LoadingContainer src={profile.photoURL} setLoading={setLoading} /> : 
+    <ContentContainer 
       profile={profile} 
       category={category} 
       setCategory={setCategory} 
       slideRows={slideRows} 
+      term={term} 
+      setTerm={setTerm} 
     />
-  // ) : (
-  //   <ProfilesContainer user={user} setProfile={setProfile} />
-  // );
+  ) : (
+    <ProfilesContainer user={user} setProfile={setProfile} />
+  );
 }
