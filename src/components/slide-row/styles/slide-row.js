@@ -10,7 +10,7 @@ export const FlexRowDiv = styled.div`
   flex-direction: row;
 `;
 
-export const GenreTitle = styled.h1`
+export const GenreTitle = styled.div`
 font-size: 24px;
 color: #e5e5e5;
 font-weight: bold;
@@ -26,54 +26,76 @@ box-sizing: border-box;
     margin-left: 30px;
   }
 }
-
-// &:last-of-type {
-//   margin-bottom: 150px;
-// }
-
 `;
 
 export const Section = styled(FlexColDiv)`
 > ${Container}:first-of-type {
     @media (min-width: 900px) {
-      margin-top: -150px;
+      margin-top: ${({ term }) => (term === '' ? '-150px' : '0')};
     }
   } 
-`;
-
-export const CardHover = styled(FlexColDiv)`
-display: none;
-position: absolute;
-background-color: #0000008f;
-height: 100%;
-width: 100%;
-
 `;
 
 export const CardDetail = styled(FlexColDiv)`
 display: none;
 position: absolute;
 bottom: 0;
-padding: 10px;
+background-color: #0000008f;
+height: inherit;
+width: inherit;
 `;
 
-export const CardText = styled.p`
-margin-top: 5px;
+export const CardText = styled.div`
 font-size: 10px;
 color: #fff;
-margin-bottom: 0;
+margin: 10px 0 0 0;
 user-select: none;
-// display: none;
 line-height: normal;
+
+@media (min-width: 1500px) {
+  font-size: 12px;
+}
+
+@media (min-width: 1900px) {
+  font-size: 14px;
+}
+
+@media (max-width: 1300px) {
+  display: none;
+}
 `;
 
 export const CardTitle = styled(GenreTitle)`
-margin-left: 0;
+// font-size: 28px;
+padding: 10px;
+margin: 0;
+position: absolute;
+bottom: 0;
+
+@media (max-width: 1500px) {
+  font-size: 20px;
+}
+
+@media (max-width: 1100px) {
+  font-size: 18px;
+}
+
+@media (max-width: 1000px) {
+  font-size: 16px;
+}
+
+@media (max-width: 800px) {
+  font-size: 14px;
+}
 `;
 
 export const Card = styled(FlexColDiv)`
 margin-right: 5px;
-position: relative;
+// position: relative;
+max-width: 305px;
+max-height: 172px;
+width: 100%;
+height: 100%;
 cursor: pointer;
 transition: transform 0.2s;
 
@@ -98,8 +120,8 @@ transition: transform 0.2s;
   }
 }
 
-@media (min-width: 1200px) {
-  &:hover ${CardHover} , &:hover ${CardDetail} {
+@media (min-width: 700px) {
+  &:hover ${CardDetail} {
     display: block;
     z-index: 999;
   }
@@ -109,7 +131,6 @@ transition: transform 0.2s;
 export const CloseIcon = styled.img`
   filter: brightness(0) invert(1);
   cursor: pointer;
-  // color: white;
   position: absolute;
   right: 20px;
   top: 20px;
@@ -135,15 +156,12 @@ line-height: normal;
 
 @media (max-width: 900px) {
   margin: 30px;
-  // max-width: none;
 }
 `;
 
 export const FocusMaturity = styled(FlexRowDiv)`
-// display: flex-block;
 margin: 30px 10px;
 align-items: center;
-// justify-content: space-between;
 `;
 
 export const FocusTitle = styled.h1`
@@ -175,12 +193,11 @@ export const Focus = styled(FlexRowDiv)`
 
 export const Image = styled.img`
 border: 0;
-max-width: 305px;
 width: 100%;
- height: auto;
- cursor: pointer;
- padding: 0;
- margin: 0;
+height: auto;
+// cursor: pointer;
+padding: 0;
+margin: 0;
 `;
 
 export const Inner = styled(FlexRowDiv)``;
@@ -196,9 +213,6 @@ border: 0;
 margin: 0;
 padding: 6px 5px 5px 5px;
 width: 30px;
-// line-height: 1;
-// height: 30px;
-// text-align: center;
 display: flex;
 align-items: center;
 justify-content: center;

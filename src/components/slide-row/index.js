@@ -7,7 +7,6 @@ import {
   CloseIcon , 
   GenreTitle , 
   CardDetail , 
-  CardHover ,  
   CardText , 
   CardTitle , 
   Focus , 
@@ -20,7 +19,6 @@ import {
   Inner , 
   MaturityGrade , 
   MaturityText , 
-  MaturitySpan , 
   Section , 
   SubTitle, 
   FocusInfo, 
@@ -47,19 +45,20 @@ export default function SlideRow({ slideRow , category , ...rest }) {
           <Card 
             key={item.id}
             onClick={() => {
-              setItemFocus(itemFocus => item)
-              setShowFocus(showFocus => true)
+              setItemFocus(prevItemFocus => item)
+              setShowFocus(prevShowFocus => true)
             }}
+            src={`/images/${category}/${slideRow.title.toLowerCase().trim().replace(/ /g , '-')}/${item.slug}/small.jpg`}
           >
             <Image 
               src={`/images/${category}/${slideRow.title.toLowerCase().trim().replace(/ /g , '-')}/${item.slug}/small.jpg`} 
             />
-            <CardHover>
-            </CardHover>
-              <CardDetail>
-                <CardTitle>{item.title}</CardTitle>
-                <CardText>{item.description}</CardText>
-              </CardDetail>
+            <CardDetail> 
+            <CardTitle>
+              {item.title}
+              <CardText>{item.description}</CardText>
+            </CardTitle>
+            </CardDetail>
           </Card>
         ))}
       </Inner>

@@ -50,7 +50,7 @@ Player.Button = function PlayerButton({ children , ...rest }) {
 
   return (
     <Button onClick={() => setShowPlayer(showPlayer => !showPlayer)}>
-      {browsePage.playerButton}
+      {browsePage.playButton}
     </Button>
   );
 }

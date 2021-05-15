@@ -43,8 +43,8 @@ export const Frame = styled.div`
 
 export const Inner = styled(Container)`
   width: 50%;
-  padding: 150px 0 500px 0;
-  display: flex;
+  padding: 100px 0 250px 0;
+  display: ${({ term }) => (term === '' ? 'flex' : 'none')};
   flex-direction: column;
   align-items: normal;
   max-width: 1500px;

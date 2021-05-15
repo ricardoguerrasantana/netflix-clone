@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { FooterContainer } from '../containers';
 import { 
   Bar,
@@ -22,6 +22,7 @@ export default function ContentContainer({
     <Header 
       src={browsePage.browseBg}
       dontShowOnSmallViewPort
+      {...rest}
     >
       <Bar>
         <Bar.Group>
@@ -31,7 +32,7 @@ export default function ContentContainer({
               (category === browsePage.seriesLink.toLowerCase()) ? 
               true : false }
             onClick={() => {
-              setCategory(category => browsePage.seriesLink.toLowerCase())
+              setCategory(prevCategory => browsePage.seriesLink.toLowerCase())
             }}
           >
             {browsePage.seriesLink}
@@ -41,7 +42,7 @@ export default function ContentContainer({
               (category === browsePage.filmsLink.toLowerCase()) ? 
               true : false }
             onClick={() => {
-              setCategory(category => browsePage.filmsLink.toLowerCase())
+              setCategory(prevCategory => browsePage.filmsLink.toLowerCase())
             }}
           >
             {browsePage.filmsLink}
@@ -65,18 +66,19 @@ export default function ContentContainer({
           </Bar.Profile>
         </Bar.Group>
       </Bar>
-      <Feature.Inner>
+      <Feature.Inner {...rest}>
         <Feature.CallOut>{browsePage.callOut}</Feature.CallOut>
         <Feature.Text>{browsePage.description}</Feature.Text>
-        <Feature.Button>Play</Feature.Button>
+        <Feature.Button>{browsePage.playButton}</Feature.Button>
       </Feature.Inner>
     </Header>
     <SlideRow.Section>
       {slideRows.map(slideRow => (
         <SlideRow 
           key={slideRow.title.toLowerCase().trim().replace(/ /g , '-')} 
-          category={category}
-          slideRow={slideRow}
+          category={category} 
+          slideRow={slideRow} 
+          {...rest} 
         />
       ))}
     </SlideRow.Section>

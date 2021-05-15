@@ -36,11 +36,12 @@ export default function BrowseContainer({ slides }) {
       ]
     });
     const search = fuse.search(term).map(({ item }) => item);
-    if (slideRows.length > 0 && term.length > 3 && search.length > 0) {
+    if (slideRows.length > 0 && term.length > 1 && search.length > 0) {
       setSlideRows(prevSlideRows => search);
     } else {
       setSlideRows(prevSlideRows => slides[category]);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [term]);
 
 return profile.displayName ? (
