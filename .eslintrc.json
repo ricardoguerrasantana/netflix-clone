@@ -1,0 +1,32 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "jest": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/all"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        // "no-console": ["warn", { "allow": ["warn", "error"] }],
+        // "no-console": "warn",
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+        , "react/jsx-indent": [1, 2, {"checkAttributes": true, "indentLogicalExpressions": true}]
+        , "react/jsx-indent-props": [1, 2]
+        // "react/jsx-no-undef": ["enabled", { "allowGlobals": false }]
+        // , "react/react-in-jsx-scope": "off"
+        // ,"react/jsx-uses-react": "error"
+        // ,"react/jsx-uses-vars": "error"
+    }
+}

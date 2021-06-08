@@ -14,6 +14,11 @@ export const global = {
   closeIconSrc: "/images/icons/close.png"
 };
 
+export const buttons = {
+  signInButtonText: "Sing In" , 
+  signUpButtonText: "Sing Up" , 
+}
+
 export const homePage = {
   homeBg: "/images/misc/home-bg.jpg" , 
   faqsTitle: "Frequently Asked Questions" , 
@@ -21,37 +26,41 @@ export const homePage = {
   optFormTitle: "Unlimited films, TV programmes and more." , 
   optFormSubTitle: "Watch anywhere. Cancel at any time." , 
   optFormText: "Ready to watch? Enter your email to create or restart your membership" , 
-  footerTitle: "Questions? Contact us." , 
-  links: [
-    [
-      "FAQ" , 
-      "Investors Relations" , 
-      "Ways to Watch" , 
-      "Coporate Information" , 
-      "Netflix Originals" , 
-    ] , 
-    [
-      "Help Centre" , 
-      "Jobs" , 
-      "Terms of Use" , 
-      "Coporate Information" , 
-      "Contact Us" , 
-    ] , 
-    [
-      "Account" , 
-      "Redeem Gift Cards" , 
-      "Privacy" , 
-      "Speed Test" , 
-    ] , 
-    [
-      "Media Centre" , 
-      "Buy Gift Cards" , 
-      "Cookie Preferences" , 
-      "Coporate Information" , 
-      "Legal Notices" , 
-    ] , 
-  ] ,
-  copyRight: "Netflix United Kingdom" , 
+  footer: {
+    uiText: {
+      title: "Questions? Contact us." , 
+      links: [
+        [
+          "FAQ" , 
+          "Investors Relations" , 
+          "Ways to Watch" , 
+          "Coporate Information" , 
+          "Netflix Originals" , 
+        ] , 
+        [
+          "Help Centre" , 
+          "Jobs" , 
+          "Terms of Use" , 
+          "Coporate Information" , 
+          "Contact Us" , 
+        ] , 
+        [
+          "Account" , 
+          "Redeem Gift Cards" , 
+          "Privacy" , 
+          "Speed Test" , 
+        ] , 
+        [
+          "Media Centre" , 
+          "Buy Gift Cards" , 
+          "Cookie Preferences" , 
+          "Coporate Information" , 
+          "Legal Notices" , 
+        ] , 
+      ] ,
+      copyRight: "Netflix United Kingdom" , 
+    }
+  } ,
 }
 
 export const singInPage = {
@@ -76,8 +85,7 @@ export const browsePage = {
   title: "Who's watching?" , 
   defaultProfileImg: '/images/misc/loading.gif' , 
   browseBg: "/images/misc/joker1.jpg" , 
-  seriesLink: "Series" , 
-  filmsLink: "Films" , 
+  categoryLinks: ["Series" , "Films"] , 
   callOut: "Watch Joker Now" ,
   searchIconURL: "/images/icons/search.png" , 
   searchPlaceholder: "Search films and series" , 

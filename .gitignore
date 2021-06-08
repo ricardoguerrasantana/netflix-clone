@@ -1,8 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# model for starting to building a component and its container
-/src/components/model
-/src/containers/model
+# model to start building a component and its container
+/src/components/Model/
+/src/containers/ModelContainer.js
 
 # firebase config
 /src/lib/firebase.prod.js
@@ -14,6 +14,7 @@
 
 # testing
 /coverage
+/src/__tests__
 
 # production
 /build

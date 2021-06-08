@@ -1,51 +1,62 @@
+/* eslint-disable react/jsx-max-depth */
 import Debug from 'debug';
-import React from 'react';
-import { BrowserRouter as Router , Route } from 'react-router-dom';
-import { 
-  Home , 
-  Browse , 
-  SignIn , 
-  SignUp 
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import {
+  HomePage,
+  BrowsePage,
+  SignInPage,
+  SignUpPage
 } from './pages';
 import * as ROUTES from './constants/routes';
-import { IsUserRedirect, ProtectedRoute } from './helpers/routes';
-import { useAuthListener } from './hooks';
+import { RedirectRoute, ProtectedRoute } from './helpers';
+import { AuthUserProvider } from './providers';
 
 const log = Debug('App:Application');
 log.log = console.log.bind(console);
 
 export default function App() {
-  // const user = {};
-  const { user } = useAuthListener(); // Read operation
-  // const user = null;
-  log('user' , user);
+  log('Rendering...');
+
+  const [authUser, setAuthUser] = useState(JSON.parse(localStorage.getItem('authUser')));
+  // log('authUser', authUser);
 
   return (
-    <Router>
-      <IsUserRedirect
-        user={user} 
-        exact path={ROUTES.HOME}
-        loggedInPath={ROUTES.BROWSE}
+    <AuthUserProvider
+      authUser={authUser}
+      setAuthUser={setAuthUser}
+    >
+      <Router>
+
+        <RedirectRoute
+          loggedInPath={ROUTES.BROWSE}
+          path={ROUTES.HOME}
         >
-        <Home />
-      </IsUserRedirect>
-      <ProtectedRoute
-       user={user} 
-       exact path={ROUTES.BROWSE}
-       loggedInPath={ROUTES.SIGN_IN}
-      >
-        <Browse />
-      </ProtectedRoute>
-      <IsUserRedirect
-        user={user} 
-        exact path={ROUTES.SIGN_IN}
-        loggedInPath={ROUTES.BROWSE}
-      >
-        <SignIn />
-      </IsUserRedirect>
-      <Route exact path={ROUTES.SIGN_UP}>
-        <SignUp />
-      </Route>
-    </Router>
+          <HomePage />
+        </RedirectRoute>
+
+        <ProtectedRoute
+          loggedInPath={ROUTES.SIGN_IN}
+          path={ROUTES.BROWSE}
+        >
+          <BrowsePage />
+        </ProtectedRoute>
+
+        <RedirectRoute
+          loggedInPath={ROUTES.BROWSE}
+          path={ROUTES.SIGN_IN}
+        >
+          <SignInPage />
+        </RedirectRoute>
+
+        <Route
+          exact
+          path={ROUTES.SIGN_UP}
+        >
+          <SignUpPage />
+        </Route>
+
+      </Router>
+    </AuthUserProvider>
   );
 }

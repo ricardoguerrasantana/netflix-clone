@@ -3,15 +3,17 @@ import { render } from 'react-dom';
 import 'normalize.css';
 import App from './app';
 import { GlobalStyles } from './global-styles';
+import { FirebaseProvider } from './providers';
 import { firebase } from './lib/firebase.prod';
-import { FirebaseContext } from './context/firebase';
 
-localStorage.debug = `App:*`;
+localStorage.debug = 'App:*';
+// localStorage.debug = 'App:*,-App:groupByGenre';
 // localStorage.removeItem('debug');
 
-render(<>
-  <FirebaseContext.Provider value={{ firebase }}>
+render(
+  <FirebaseProvider firebase={firebase} >
     <GlobalStyles />
+
     <App />
-  </FirebaseContext.Provider>
-</> , document.getElementById('root'));
+  </FirebaseProvider>
+  , document.getElementById('root'));
