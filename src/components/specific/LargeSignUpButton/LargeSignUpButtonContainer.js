@@ -1,5 +1,5 @@
 import Debug from "debug";
-const log = Debug('App:LargeSingUpButtonContainer');
+const log = Debug('App:LargeSignUpButtonContainer');
 log.log = console.log.bind(console);
 
 import React, { memo } from 'react';

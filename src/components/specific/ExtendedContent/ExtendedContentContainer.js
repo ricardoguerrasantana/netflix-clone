@@ -2,30 +2,16 @@ import Debug from "debug";
 const log = Debug('App:ExtendedContentContainer');
 log.log = console.log.bind(console);
 
-import React, { memo, useEffect, useState } from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
-import { Maturity, BigPlayer, Review, Extended } from '../../../containers';
+import { Maturity, ExtendedContentPlayer, Review, Extended } from '../../../containers';
 import { useCategory } from '../../../hooks';
-import { capitalizeFirstEach, toKebabCase } from "../../../utils";
+import { toKebabCase } from "../../../utils";
 
-function ExtendedContentContainer({ item, slideRowTitle }) {
+function ExtendedContentContainer({ item, setDisplayExtended }) {
   log('Rendering...');
 
   const category = useCategory();
-  const [displayFromOutside, setDisplayFromOutside] = useState(false);
-
-  useEffect(() => {
-    if (item.genre) {
-
-      const genre = capitalizeFirstEach(item.genre);
-      if (genre === slideRowTitle) {
-        setDisplayFromOutside(true);
-      } else {
-        setDisplayFromOutside(false);
-      }
-
-    }
-  }, [item]);
 
   function getBackgroundSrc() {
     const categoryKC = toKebabCase(category);
@@ -37,7 +23,6 @@ function ExtendedContentContainer({ item, slideRowTitle }) {
   return (
     <Extended
       backgroundSrc={getBackgroundSrc()}
-      displayFromOutside={displayFromOutside}
       elements={
         <>
           <Review
@@ -50,16 +35,17 @@ function ExtendedContentContainer({ item, slideRowTitle }) {
             maturity={item.maturity}
           />
 
-          <BigPlayer />
+          <ExtendedContentPlayer />
         </>
       }
+      setDisplayExtended={setDisplayExtended}
     />
   );
 }
 
 ExtendedContentContainer.propTypes = {
   item: PropTypes.objectOf(PropTypes.any).isRequired,
-  slideRowTitle: PropTypes.string.isRequired,
+  setDisplayExtended: PropTypes.func.isRequired,
 }
 
 export default memo(ExtendedContentContainer);

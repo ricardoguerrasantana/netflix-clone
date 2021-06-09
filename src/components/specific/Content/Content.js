@@ -1,42 +1,18 @@
-/* eslint-disable react/jsx-max-depth */
-/* eslint-disable react/prop-types */
 import React from 'react';
-// import PropTypes from 'prop-types';
-import { FooterContainer, TopBar } from '../../../containers';
-import { SlideRow, Feature, Header } from '../..';
+import PropTypes from 'prop-types';
+import { FooterContainer, ContentSlideRow, FeaturedContent } from '../../../containers';
 import { SlideRows } from './styled-components';
-import { browsePage } from '../../../constants/ui-text';
 
 function Content({ selectedItem, setSelectedItem, term, slideRows }) {
   return (
     <>
-      <Header
-        dontShowOnSmallViewPort
-        src={browsePage.browseBg}
-        term={term}
-      >
-        <TopBar />
-
-        <Feature.Inner term={term}>
-          <Feature.CallOut>
-            {browsePage.callOut}
-          </Feature.CallOut>
-
-          <Feature.Text>
-            {browsePage.description}
-          </Feature.Text>
-
-          <Feature.Button>
-            {browsePage.playButton}
-          </Feature.Button>
-        </Feature.Inner>
-      </Header>
+      <FeaturedContent />
 
       <SlideRows term={term} >
         {slideRows.map(slideRow => {
           return (
-            <SlideRow
-              items={slideRow.items}
+            <ContentSlideRow
+              content={slideRow.items}
               key={slideRow.title}
               selectedItem={selectedItem}
               setSelectedItem={setSelectedItem}
@@ -52,6 +28,10 @@ function Content({ selectedItem, setSelectedItem, term, slideRows }) {
 }
 
 Content.propTypes = {
+  selectedItem: PropTypes.objectOf(PropTypes.any).isRequired , 
+  setSelectedItem: PropTypes.func.isRequired , 
+  slideRows: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.any)).isRequired , 
+  term: PropTypes.string.isRequired , 
 }
 
 Content.defaultProps = {

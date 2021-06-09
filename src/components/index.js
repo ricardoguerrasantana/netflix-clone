@@ -9,4 +9,4 @@ export { default as Loading } from './Loading';
 export { default as OptForm } from './OptForm';
 export { default as OptionBar } from './generic/OptionBar/OptionBar';
 export { default as Profiles } from './Profiles';
-export { default as SlideRow } from './specific/SlideRow/SlideRowContainer';
+export { default as SlideRow } from './generic/SlideRow/SlideRowContainer';

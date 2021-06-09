@@ -36,7 +36,7 @@ const StyledButton = styled.button`${({ styles, to }) => (
       cursor: default;
     }
     `
-    : (styles === "bigPlayer") ?
+    : (styles === "extendedContentPlayer") ?
     `
     background-color: #e50914;
     color: white;
@@ -60,12 +60,35 @@ const StyledButton = styled.button`${({ styles, to }) => (
       transform: scale(1.15);
       // background-color: #ff0a16;
     }
-    `: ""
+    `
+    : (styles === "featuredContentPlayer") ? 
+    `
+    color: #000;
+    background-color: #e6e6e6;
+    border: 0;
+    padding: 12px 20px;
+    margin: 20px 0 0 10px;
+    font-size: 22px;
+    font-weight: 700;
+    border-radius: 5px;
+    max-width: 130px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+    box-shadow: 0 1vw 1vw -0.4vw rgba(0, 0, 0, 0.55);
+
+    &:hover {
+      background-color: #ff1e1e;
+      color: white;
+    }
+    `
+    : ""
     )
   }`;
 
 StyledButton.propTypes = {
-  to: PropTypes.string.isRequired
+  styles: PropTypes.string.isRequired ,
+  to: PropTypes.string.isRequired ,
 }
 
 export default StyledButton;

@@ -17,6 +17,7 @@ export const global = {
 export const buttons = {
   signInButtonText: "Sing In" , 
   signUpButtonText: "Sing Up" , 
+  featureContentButtonText: "Play" , 
 }
 
 export const homePage = {

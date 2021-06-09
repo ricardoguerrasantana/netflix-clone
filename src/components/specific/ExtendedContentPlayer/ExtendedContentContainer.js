@@ -1,17 +1,17 @@
 import Debug from "debug";
-const log = Debug('App:BigPlayerContainer');
+const log = Debug('App:ExtendedContentPlayerContainer');
 log.log = console.log.bind(console);
 
 import React, { memo } from 'react';
 import { browsePage } from "../../../constants/ui-text";
 import { Player } from "../../../containers";
 
-function BigPlayerContainer() {
+function ExtendedContentPlayerContainer() {
   log('Rendering...');
 
   return (
     <Player 
-      buttonStyles="bigPlayer" 
+      buttonStyles="extendedContentPlayer" 
       buttonText={browsePage.playButton} 
       videoId="ricflix-player" 
       videoSource="/videos/bunny.mp4" 
@@ -20,4 +20,4 @@ function BigPlayerContainer() {
   );
 }
 
-export default memo(BigPlayerContainer);
+export default memo(ExtendedContentPlayerContainer);
