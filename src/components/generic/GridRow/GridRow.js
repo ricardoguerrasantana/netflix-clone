@@ -27,7 +27,7 @@ GridRow.propTypes = {
     key: PropTypes.string.isRequired,
     items: PropTypes.arrayOf(PropTypes.shape({
       key: PropTypes.string.isRequired,
-      element: PropTypes.element.isRequired,
+      element: PropTypes.element.isRequired, 
     })).isRequired
   })).isRequired,
 }

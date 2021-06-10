@@ -6,20 +6,22 @@ import React , { memo } from 'react';
 import PropTypes from 'prop-types';
 import GridRow from './GridRow';
 
-function GridRowContainer({ string }) {
+function GridRowContainer({ rows }) {
   log('Rendering...');
 
   return (
-    <GridRow string={string} />
+    <GridRow rows={rows} />
   );
 }
 
 GridRowContainer.propTypes = {
-  string: PropTypes.string,
-}
-
-GridRowContainer.defaultProps = {
-  string: "",
+  rows: PropTypes.arrayOf(PropTypes.shape({
+    key: PropTypes.string.isRequired,
+    items: PropTypes.arrayOf(PropTypes.shape({
+      key: PropTypes.string.isRequired,
+      element: PropTypes.element.isRequired, 
+    })).isRequired
+  })).isRequired,
 }
 
 export default memo(GridRowContainer);

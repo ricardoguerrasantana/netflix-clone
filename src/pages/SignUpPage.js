@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   HeaderContainer,
-  FooterContainer,
+  FooterLinks,
   SignUpContainer
 } from '../containers';
 
@@ -12,7 +12,7 @@ export default function SignUp() {
         <SignUpContainer />
       </HeaderContainer>
 
-      <FooterContainer />
+      <FooterLinks />
     </>
   );
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   HeaderContainer,
-  FooterContainer,
+  FooterLinks,
   SignInContainer
 } from '../containers';
 
@@ -12,7 +12,7 @@ export default function SignIn() {
         <SignInContainer />
       </HeaderContainer>
 
-      <FooterContainer />
+      <FooterLinks />
     </>
   );
 }

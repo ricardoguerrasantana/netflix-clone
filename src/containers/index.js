@@ -1,6 +1,5 @@
 export { default as Browse } from '../pages/BrowsePage/BrowsePageContainer';
 export { default as FaqsContainer } from './FaqsContainer';
-export { default as FooterContainer } from './FooterContainer';
 export { default as HeaderContainer } from './HeaderContainer';
 export { default as JumbotronContainer } from './JumbotronContainer';
 export { default as LoadingContainer } from './LoadingContainer';
@@ -18,6 +17,7 @@ export { default as ContentSlideRow } from '../components/specific/ContentSlideR
 export { default as ExtendedContent } from '../components/specific/ExtendedContent/ExtendedContentContainer';
 export { default as ExtendedContentPlayer } from '../components/specific/ExtendedContentPlayer/ExtendedContentContainer';
 export { default as ContentContainer } from '../components/specific/Content/ContentContainer';
+export { default as FooterLinks } from '../components/specific/FooterLinks/FooterLinksContainer';
 export { default as FeaturedContent } from '../components/specific/FeaturedContent/FeaturedContentContainer';
 export { default as FeaturedContentPlayer } from '../components/specific/FeaturedContentPlayer/FeaturedContentPlayerContainer';
 export { default as LargeSignUpButton } from '../components/specific/LargeSignUpButton/LargeSignUpButtonContainer';

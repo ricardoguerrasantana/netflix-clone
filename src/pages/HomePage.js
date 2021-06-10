@@ -2,7 +2,7 @@ import React from 'react';
 import {
   FaqsContainer,
   MainContainer,
-  FooterContainer,
+  FooterLinks,
   HeaderContainer,
   JumbotronContainer
 } from '../containers';
@@ -18,7 +18,7 @@ export default function Home() {
 
       <FaqsContainer />
 
-      <FooterContainer />
+      <FooterLinks />
     </>
   );
 }

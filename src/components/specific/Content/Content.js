@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FooterContainer, ContentSlideRow, FeaturedContent } from '../../../containers';
+import { FooterLinks , ContentSlideRow, FeaturedContent } from '../../../containers';
 import { SlideRows } from './styled-components';
 
 function Content({ selectedItem, setSelectedItem, term, slideRows }) {
@@ -22,7 +22,7 @@ function Content({ selectedItem, setSelectedItem, term, slideRows }) {
         })}
       </SlideRows>
 
-      <FooterContainer />
+      <FooterLinks />
     </>
   );
 }
