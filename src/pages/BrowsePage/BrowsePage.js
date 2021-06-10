@@ -3,7 +3,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 import { 
   ProfilesContainer , 
-  LoadingContainer, 
+  LoadingProfile, 
   ContentContainer, 
 } from "../../containers";
 
@@ -19,9 +19,9 @@ export function BrowsePage({ loading , setLoading ,
   return (
     profile.displayName ? (
       loading ? 
-        <LoadingContainer
+        <LoadingProfile
+          profileAvatarSrc={profile.photoURL}
           setLoading={setLoading}
-          src={profile.photoURL}
         /> : 
         <ContentContainer />
     ) : (

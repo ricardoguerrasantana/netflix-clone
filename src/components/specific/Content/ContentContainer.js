@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-max-depth */
 import Debug from "debug";
 const log = Debug('App:ContentContainer');
 log.log = console.log.bind(console);

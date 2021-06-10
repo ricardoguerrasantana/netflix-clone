@@ -1,13 +1,13 @@
-import styled from 'styled-components';
-import { global } from '../constants/ui-text';
+import styled from 'styled-components/macro';
+import PropTypes from 'prop-types';
 
-export const Spinner = styled.div`
+const Spinner = styled.div`
 z-index: 999;
 
 :after {
   width: 150px;
   height: 150px;
-  background-image: url(${global.spinnerImg});
+  background-image: url(${({spinnerSrc}) => spinnerSrc});
   background-size: contain;
   background-repeat: no-repeat;
   content: '';
@@ -59,12 +59,8 @@ z-index: 999;
 }
 `;
 
-export const Picture = styled.img`
-  width: 50px;
-  height: auto;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin: -25px 0 0 -25px;
-  padding: 0;
-`;
+Spinner.propTypes = {
+  spinnerSrc: PropTypes.string.isRequired
+}
+
+export default Spinner;

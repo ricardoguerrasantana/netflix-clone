@@ -4,7 +4,6 @@ export { default as Form } from './Form';
 export { default as Header } from './Header';
 export { default as Jumbotron } from './Jumbotron';
 export { default as Link } from './Link';
-export { default as Loading } from './Loading';
 export { default as OptForm } from './OptForm';
 export { default as OptionBar } from './generic/OptionBar/OptionBar';
 export { default as Profiles } from './Profiles';

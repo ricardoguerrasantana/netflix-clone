@@ -2,7 +2,6 @@ export { default as Browse } from '../pages/BrowsePage/BrowsePageContainer';
 export { default as FaqsContainer } from './FaqsContainer';
 export { default as HeaderContainer } from './HeaderContainer';
 export { default as JumbotronContainer } from './JumbotronContainer';
-export { default as LoadingContainer } from './LoadingContainer';
 export { default as MainContainer } from './MainContainer';
 export { default as OptFormContainer } from './OptFormContainer';
 export { default as ProfilesContainer } from './ProfilesContainer';
@@ -21,6 +20,7 @@ export { default as FooterLinks } from '../components/specific/FooterLinks/Foote
 export { default as FeaturedContent } from '../components/specific/FeaturedContent/FeaturedContentContainer';
 export { default as FeaturedContentPlayer } from '../components/specific/FeaturedContentPlayer/FeaturedContentPlayerContainer';
 export { default as LargeSignUpButton } from '../components/specific/LargeSignUpButton/LargeSignUpButtonContainer';
+export { default as LoadingProfile } from '../components/specific/LoadingProfile/LoadingProfileContainer';
 export { default as ProfileOptions } from '../components/specific/ProfileOptions/ProfileOptionsContainer';
 export { default as SmallSignInButton } from '../components/specific/SmallSignInButton/SmallSignInButtonContainer';
 export { default as TopBar } from '../components/specific/TopBar/TopBarContainer';
@@ -36,6 +36,7 @@ export { default as Extended } from '../components/generic/Extended/ExtendedCont
 export { default as Feature } from '../components/generic/Feature/FeatureContainer';
 export { default as GridRow } from '../components/generic/GridRow/GridRowContainer';
 export { default as Icon } from '../components/generic/Icon/IconContainer';
+export { default as Loading } from '../components/generic/Loading/LoadingContainer';
 export { default as Logo } from '../components/generic/Logo/LogoContainer';
 export { default as Maturity } from '../components/generic/Maturity/MaturityContainer';
 export { default as Menu } from '../components/generic/Menu/MenuContainer';
