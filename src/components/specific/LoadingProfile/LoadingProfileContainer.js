@@ -14,7 +14,7 @@ function LoadingProfileContainer({ setLoading , profileAvatarSrc }) {
     log("Mounting timeOut");
     const timeOut = setTimeout(() => {
       setLoading(false);
-    }, 5000);
+    }, 500);
 
     return () => {
       log("Clean up timeOut");

@@ -5,6 +5,3 @@ export { default as Header } from './Header';
 export { default as Jumbotron } from './Jumbotron';
 export { default as Link } from './Link';
 export { default as OptForm } from './OptForm';
-export { default as OptionBar } from './generic/OptionBar/OptionBar';
-export { default as Profiles } from './Profiles';
-export { default as SlideRow } from './generic/SlideRow/SlideRowContainer';

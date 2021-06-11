@@ -2,7 +2,7 @@ import Debug from "debug";
 import React from "react";
 import PropTypes from 'prop-types';
 import { 
-  ProfilesContainer , 
+  ProfileSelection , 
   LoadingProfile, 
   ContentContainer, 
 } from "../../containers";
@@ -25,7 +25,7 @@ export function BrowsePage({ loading , setLoading ,
         /> : 
         <ContentContainer />
     ) : (
-      <ProfilesContainer />
+      <ProfileSelection />
     )
   );
 }
