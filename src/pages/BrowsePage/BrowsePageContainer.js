@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-max-depth */
 import Debug from 'debug';
 import React, { memo, useState } from "react";
-import { BrowsePage } from './BrowsePage';
+import BrowsePage from './BrowsePage';
 import { TermProvider, CategoryContentProvider, ProfileProvider } from '../../providers'
 
 
@@ -32,10 +32,8 @@ function BrowsePageContainer() {
           term={term}
         >
           <BrowsePage
-            category={category}
             loading={loading}
             profile={profile}
-            setCategory={setCategory}
             setLoading={setLoading}
           />
         </TermProvider>

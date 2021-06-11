@@ -82,6 +82,43 @@ const StyledButton = styled.button`${({ styles, to }) => (
       color: white;
     }
     `
+    : (styles === "optForm") ? 
+    `
+    display: flex;
+    align-items: center;
+    height: 70px;
+    background: #e50914;
+    color: white;
+    text-transform: uppercase;
+    padding: 0 28px;
+    font-size: 26px;
+    border: 0;
+    cursor: pointer;
+    // text-align: center;
+    // justify-content: space-between;
+    line-height: normal; // Aligns text with chevron image
+    
+    &:hover {
+      background: #f40612;
+    }
+    
+    @media (max-width: 1000px) {
+      height: 50px;
+      font-size: 16px;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    img {
+      margin: 0 0 0 12px;
+      filter: brightness(0) invert(1);
+      width: 24px;
+
+      @media (max-width: 1000px) {
+        width: 16px;
+      }
+    }
+    `
     : ""
     )
   }`;

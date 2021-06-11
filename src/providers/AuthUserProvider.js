@@ -18,8 +18,8 @@ function AuthUserProvider({ children , authUser , setAuthUser }) {
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         localStorage.setItem('authUser' , JSON.stringify(user));
-        setAuthUser(user);
-        // localStorage.removeItem('authUser'); setAuthUser(null); // Simulates log out
+        // setAuthUser(user);
+        localStorage.removeItem('authUser'); setAuthUser(null); // Simulates log out
       } else {
         localStorage.removeItem('authUser');
         setAuthUser(null);

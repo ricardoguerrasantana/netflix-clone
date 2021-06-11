@@ -37,6 +37,7 @@ function ContentSlideRowContainer({ setSelectedItem, content, title, selectedIte
 
     const element = (
       <Card
+        alt={item.title}
         description={item.description}
         handleCardClick={handleCardClick}
         imageSrc={`/images/${category}/${title.toLowerCase().trim().replace(/ /g, '-')}/${item.slug}/small.jpg`}

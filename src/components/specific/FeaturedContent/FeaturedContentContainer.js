@@ -4,7 +4,8 @@ log.log = console.log.bind(console);
 
 import React, { memo } from 'react';
 import { browsePage } from "../../../constants/ui-text";
-import { Background , Feature, FeaturedContentPlayer, TopBar } from "../../../containers";
+import { Feature, FeaturedContentPlayer, TopBar } from "../../../containers";
+import { Inner, CallOut, Text } from './styled-components';
 import { useTerm } from "../../../hooks";
 
 function FeaturedContentContainer() {
@@ -12,27 +13,37 @@ function FeaturedContentContainer() {
 
   const term = useTerm();
 
-  return (
-    <Background
-      backgroundSrc={
-        term !== "" ? null : browsePage.browseBg
-      }
-      dontShowOnSmallViewPort
-    >
-      <>
-        <TopBar />
+  const backgroundSrc = term !== "" ? null : browsePage.browseBg;
 
-        {
-          term === "" ?
-            <Feature
-              action={<FeaturedContentPlayer />}
-              callOut={browsePage.callOut}
-              description={browsePage.description}
-            />
-            : null
-        }
-      </>
-    </Background>
+  const elements = (
+    <>
+      <TopBar />
+
+      {
+        term === "" ?
+          <Inner>
+            <CallOut>
+              {browsePage.callOut}
+            </CallOut>
+
+            <Text>
+              {browsePage.description}
+            </Text>
+
+            <FeaturedContentPlayer />
+          </Inner>
+          : null
+      }
+    </>
+  );
+
+  return (
+
+    <Feature
+      backgroundSrc={backgroundSrc}
+      dontShowOnSmallViewPort
+      elements={elements}
+    />
   );
 }
 

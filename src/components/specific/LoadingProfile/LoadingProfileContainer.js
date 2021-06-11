@@ -5,9 +5,12 @@ log.log = console.log.bind(console);
 import React, { memo, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Loading } from "../../../containers";
+import { useProfile } from "../../../hooks";
 
-function LoadingProfileContainer({ setLoading , profileAvatarSrc }) {
+function LoadingProfileContainer({ setLoading }) {
   log('Rendering...');
+  
+  const profile = useProfile();
 
   // Simulates loading profile data
   useEffect(() => {
@@ -23,12 +26,11 @@ function LoadingProfileContainer({ setLoading , profileAvatarSrc }) {
   }, []);
 
   return (
-    <Loading profileAvatarSrc={profileAvatarSrc} />
+    <Loading profileAvatarSrc={profile.photoURL} />
   );
 }
 
 LoadingProfileContainer.propTypes = {
-  profileAvatarSrc: PropTypes.string.isRequired ,
   setLoading: PropTypes.func.isRequired,
 }
 

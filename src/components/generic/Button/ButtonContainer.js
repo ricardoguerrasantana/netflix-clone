@@ -25,7 +25,10 @@ ButtonContainer.propTypes = {
   disabled: PropTypes.bool,
   handleClick: PropTypes.func,
   styles: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
+  text: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+  ]).isRequired,
   to: PropTypes.string,
   type: PropTypes.string,
 }

@@ -21,7 +21,10 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   handleClick: PropTypes.func.isRequired,
   styles: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
+  text: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+  ]).isRequired,
   to: PropTypes.string.isRequired,
   type: PropTypes.string,
 }

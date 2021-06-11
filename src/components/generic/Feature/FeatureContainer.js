@@ -6,26 +6,27 @@ import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import Feature from './Feature';
 
-function FeatureContainer({ action, callOut, description }) {
+function FeatureContainer({ backgroundSrc, dontShowOnSmallViewPort
+  , elements }) {
   log('Rendering...');
 
   return (
     <Feature
-      action={action}
-      callOut={callOut}
-      description={description}
+      backgroundSrc={backgroundSrc}
+      dontShowOnSmallViewPort={dontShowOnSmallViewPort}
+      elements={elements}
     />
   );
 }
 
 FeatureContainer.propTypes = {
-  action: PropTypes.element,
-  callOut: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  backgroundSrc: PropTypes.string.isRequired,
+  dontShowOnSmallViewPort: PropTypes.bool,
+  elements: PropTypes.element.isRequired,
 }
 
 FeatureContainer.defaultProps = {
-  action: null,
+  dontShowOnSmallViewPort: false
 }
 
 export default memo(FeatureContainer);

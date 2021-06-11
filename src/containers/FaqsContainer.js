@@ -1,5 +1,5 @@
 import React from 'react';
-import { OptFormContainer } from '.';
+import { OptFormContainer, OptHome } from '.';
 import { Accordion } from '../components';
 import faqsData from '../fixtures/faqs.json';
 import { homePage } from '../constants/ui-text';
@@ -17,9 +17,8 @@ export default function FaqsContainer() {
         ))}
       </Accordion.Frame>
       
-      <OptFormContainer 
-        hideTitle 
-        hideSubTitle 
+      <OptHome 
+        hideHeader 
       />
     </Accordion>
   );

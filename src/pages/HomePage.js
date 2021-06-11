@@ -1,18 +1,21 @@
 import React from 'react';
 import {
   FaqsContainer,
-  MainContainer,
+  // MainContainer,
   FooterLinks,
-  HeaderContainer,
-  JumbotronContainer
+  // HeaderContainer,
+  JumbotronContainer,
+  FeaturedHome
 } from '../containers';
 
 export default function Home() {
   return (
     <>
-      <HeaderContainer>
+      <FeaturedHome />
+
+      {/* <HeaderContainer>
         <MainContainer />
-      </HeaderContainer>
+      </HeaderContainer> */}
 
       <JumbotronContainer />
 

@@ -1,31 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Inner, CallOut, Text } from './styled-components';
+import { Background } from "../../../containers";
 
-function Feature({ action, callOut, description }) {
+function Feature({ backgroundSrc, dontShowOnSmallViewPort
+  , elements }) {
   return (
-    <Inner>
-      <CallOut>
-        {callOut}
-      </CallOut>
-
-      <Text>
-        {description}
-      </Text>
-
-      {action}
-    </Inner>
+    <Background
+      backgroundSrc={backgroundSrc}
+      dontShowOnSmallViewPort={dontShowOnSmallViewPort}
+    >
+      {elements}
+    </Background>
   );
 }
 
 Feature.propTypes = {
-  action: PropTypes.element,
-  callOut: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-}
-
-Feature.defaultProps = {
-  action: null,
+  backgroundSrc: PropTypes.string.isRequired,
+  dontShowOnSmallViewPort: PropTypes.bool.isRequired,
+  elements: PropTypes.element.isRequired,
 }
 
 export default Feature;

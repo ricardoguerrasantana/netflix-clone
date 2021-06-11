@@ -17,6 +17,8 @@ export const global = {
 export const buttons = {
   signInButtonText: "Sing In",
   signUpButtonText: "Sing Up",
+  optFormAlt: "Try Now",
+  optFormSrc: "/images/icons/chevron-right.png",
   featureContentButtonText: "Play",
 }
 
@@ -24,6 +26,7 @@ export const homePage = {
   homeBg: "/images/misc/home-bg.jpg",
   faqsTitle: "Frequently Asked Questions",
   optFormButton: "Try it now",
+  optFormButtonAlt: "Try it now",
   optFormTitle: "Unlimited films, TV programmes and more.",
   optFormSubTitle: "Watch anywhere. Cancel at any time.",
   optFormText: "Ready to watch? Enter your email to create or restart your membership",
