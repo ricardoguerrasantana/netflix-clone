@@ -24,12 +24,18 @@ export const buttons = {
 
 export const homePage = {
   homeBg: "/images/misc/home-bg.jpg",
-  faqsTitle: "Frequently Asked Questions",
   optFormButton: "Try it now",
   optFormButtonAlt: "Try it now",
   optFormTitle: "Unlimited films, TV programmes and more.",
   optFormSubTitle: "Watch anywhere. Cancel at any time.",
   optFormText: "Ready to watch? Enter your email to create or restart your membership",
+  faqs: {
+    faqsTitle: "Frequently Asked Questions",
+    closeImgSrc: "/images/icons/close-slim.png",
+    closeAtl: "Close",
+    openImgSrc: "/images/icons/add.png",
+    openAlt: "Open",
+  } ,
   footer: {
     title: "Questions? Contact us.",
     links: [

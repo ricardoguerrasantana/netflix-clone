@@ -1,7 +1,5 @@
 export { default as Browse } from '../pages/BrowsePage/BrowsePageContainer';
-export { default as FaqsContainer } from './FaqsContainer';
 export { default as HeaderContainer } from './HeaderContainer';
-export { default as JumbotronContainer } from './JumbotronContainer';
 export { default as SignInContainer } from './SignInContainer';
 export { default as SignUpContainer } from './SignUpContainer';
 
@@ -9,14 +7,16 @@ export { default as SignUpContainer } from './SignUpContainer';
 
 
 // Specific Components
+export { default as Content } from '../components/specific/Content/ContentContainer';
 export { default as ContentSlideRow } from '../components/specific/ContentSlideRow/ContentSlideRowContainer';
 export { default as ExtendedContent } from '../components/specific/ExtendedContent/ExtendedContentContainer';
 export { default as ExtendedContentPlayer } from '../components/specific/ExtendedContentPlayer/ExtendedContentContainer';
-export { default as Content } from '../components/specific/Content/ContentContainer';
-export { default as FooterLinks } from '../components/specific/FooterLinks/FooterLinksContainer';
+export { default as FaqsAccordion } from '../components/specific/FaqsAccordion/FaqsAccordionContainer';
 export { default as FeaturedContent } from '../components/specific/FeaturedContent/FeaturedContentContainer';
 export { default as FeaturedHome } from '../components/specific/FeaturedHome/FeaturedHomeContainer';
 export { default as FeaturedMain } from '../components/specific/FeaturedMain/FeaturedMainContainer';
+export { default as FooterLinks } from '../components/specific/FooterLinks/FooterLinksContainer';
+export { default as Jumbotron } from '../components/specific/Jumbotron/JumbotronContainer';
 export { default as FeaturedContentPlayer } from '../components/specific/FeaturedContentPlayer/FeaturedContentPlayerContainer';
 export { default as LargeSignUpButton } from '../components/specific/LargeSignUpButton/LargeSignUpButtonContainer';
 export { default as LoadingProfile } from '../components/specific/LoadingProfile/LoadingProfileContainer';
@@ -31,6 +31,7 @@ export { default as TopBar } from '../components/specific/TopBar/TopBarContainer
 // Generic Components
 export { default as Background } from '../components/generic/Background/BackgroundContainer';
 export { default as Button } from '../components/generic/Button/ButtonContainer';
+export { default as DropdownInfo } from '../components/generic/DropdownInfo/DropdownInfoContainer';
 export { default as Card } from '../components/generic/Card/CardContainer';
 export { default as DropdownMenu } from '../components/generic/DropdownMenu/DropdownMenuContainer';
 export { default as Extended } from '../components/generic/Extended/ExtendedContainer';
