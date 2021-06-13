@@ -4,7 +4,7 @@ log.log = console.log.bind(console);
 
 import React, { memo, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Loading } from "../../../containers";
+import { Loading } from "../..";
 import { useProfile } from "../../../hooks";
 
 function LoadingProfileContainer({ setLoading }) {

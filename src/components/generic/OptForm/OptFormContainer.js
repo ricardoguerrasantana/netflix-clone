@@ -6,7 +6,7 @@ import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import OptForm from './OptForm';
 import { buttons, global, homePage } from "../../../constants/ui-text";
-import { Button } from "../../../containers";
+import { Button } from "../..";
 
 function OptFormContainer({ footer, handleSubmit, header }) {
   log('Rendering...');
@@ -49,7 +49,7 @@ OptFormContainer.propTypes = {
 
 OptFormContainer.defaultProps = {
   footer: null,
-  handleSubmit: () => { },
+  handleSubmit: () => {},
   header: null,
 }
 

@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Container, Detail, Image, Description, Title } from './styled-components';
 
-function Card({ altCard, imageSrc, title, description , handleCardPointerEnter , handleCardPointerLeave , displayDetail , handleCardClick }) {
+function Card({ alt, imageSrc, title, description , handleCardPointerEnter , handleCardPointerLeave , displayDetail , handleCardClick }) {
   return (
     <Container
       onClick={handleCardClick}
@@ -11,7 +11,7 @@ function Card({ altCard, imageSrc, title, description , handleCardPointerEnter ,
       onPointerLeave={handleCardPointerLeave}
     >
       <Image
-        alt={altCard}
+        alt={alt}
         src={imageSrc}
       />
 
@@ -29,7 +29,7 @@ function Card({ altCard, imageSrc, title, description , handleCardPointerEnter ,
 }
 
 Card.propTypes = {
-  altCard: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   displayDetail: PropTypes.bool.isRequired,
   handleCardClick: PropTypes.func.isRequired,

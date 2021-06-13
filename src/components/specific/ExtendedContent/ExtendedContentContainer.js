@@ -4,7 +4,7 @@ log.log = console.log.bind(console);
 
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
-import { Maturity, ExtendedContentPlayer, Review, Extended } from '../../../containers';
+import { Maturity, ExtendedContentPlayer, Review, Extended } from '../..';
 import { useCategory } from '../../../hooks';
 import { toKebabCase } from "../../../utils";
 

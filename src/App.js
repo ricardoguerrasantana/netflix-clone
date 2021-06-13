@@ -1,5 +1,8 @@
 /* eslint-disable react/jsx-max-depth */
 import Debug from 'debug';
+const log = Debug('App:Application');
+log.log = console.log.bind(console);
+
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import {
@@ -12,10 +15,7 @@ import * as ROUTES from './constants/routes';
 import { RedirectRoute, ProtectedRoute } from './helpers';
 import { AuthUserProvider } from './providers';
 
-const log = Debug('App:Application');
-log.log = console.log.bind(console);
-
-export default function App() {
+function App() {
   log('Rendering...');
 
   const [authUser, setAuthUser] = useState(JSON.parse(localStorage.getItem('authUser')));
@@ -60,3 +60,5 @@ export default function App() {
     </AuthUserProvider>
   );
 }
+
+export default App;

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Container , Title, Text } from './styled-components';
-import { GridRow } from '../../../containers';
+import { GridRow } from '../..';
 
 function FooterLinks({ copyRight , rows , title }) {
   return (

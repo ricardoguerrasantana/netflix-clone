@@ -14,13 +14,9 @@ function Background({ backgroundSrc, children, dontShowOnSmallViewPort }) {
 }
 
 Background.propTypes = {
-  backgroundSrc: PropTypes.string,
+  backgroundSrc: PropTypes.string.isRequired,
   children: PropTypes.element.isRequired,
   dontShowOnSmallViewPort: PropTypes.bool.isRequired,
-}
-
-Background.defaultProps = {
-  backgroundSrc: null ,
 }
 
 export default Background;

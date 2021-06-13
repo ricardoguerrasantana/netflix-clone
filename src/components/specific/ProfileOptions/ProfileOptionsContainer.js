@@ -1,7 +1,7 @@
 import React , { memo } from 'react';
 import { browsePage } from '../../../constants/ui-text';
 import { Link } from './styled-components';
-import { DropdownMenu , Icon } from '../../../containers';
+import { DropdownMenu , Icon } from '../..';
 import { useProfile , useFirebase } from '../../../hooks';
 
 import Debug from "debug";

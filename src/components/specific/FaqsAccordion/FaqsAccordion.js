@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Title, Container, Inner } from './styled-components';
-import { DropdownInfo } from '../../../containers';
+import { DropdownInfo } from '../..';
 
 function FaqsAccordion({ faqs, title }) {
   return (

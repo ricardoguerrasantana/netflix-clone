@@ -8,7 +8,7 @@ import {
   SearchBar,
   OptionBar,
   ProfileOptions,
-} from '../../../containers';
+} from '../..';
 
 import Debug from "debug";
 const log = Debug('App:TopBarContainer');
@@ -63,7 +63,7 @@ function TopBarContainer({ mode }) {
 }
 
 TopBarContainer.propTypes = {
-  // TopBar accepts only one mode "justLogo" otherwise the mode is determined by user authorization
+  // TopBar accepts only one mode: "justLogo", otherwise the mode is determined by user authorization.
   mode: PropTypes.oneOf(["justLogo"])
 }
 

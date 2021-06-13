@@ -4,7 +4,7 @@ log.log = console.log.bind(console);
 
 import React, { memo } from 'react';
 import ProfileSelection from './ProfileSelection';
-import { Profile, TopBar } from "../../../containers"
+import { Profile, TopBar } from "../.."
 import { useAuthUser, useSetProfile } from "../../../hooks";
 import { browsePage } from "../../../constants/ui-text";
 

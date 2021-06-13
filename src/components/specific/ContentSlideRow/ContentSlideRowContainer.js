@@ -5,7 +5,7 @@ log.log = console.log.bind(console);
 import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 import { useCategory } from "../../../hooks";
-import { Card, ExtendedContent, SlideRow } from '../../../containers'
+import { Card, ExtendedContent, SlideRow } from '../..'
 import { capitalizeFirstEach } from "../../../utils";
 
 function ContentSlideRowContainer({ setSelectedItem, content, title, selectedItem }) {
@@ -51,7 +51,7 @@ function ContentSlideRowContainer({ setSelectedItem, content, title, selectedIte
     }
   });
 
-  // If selected item belongs to this row ExtendedContent component may be sent to be displayed by SlideRow generic component.
+  // When Item that belongs to this row has been selected ExtendedContent component may be displayed by SlideRow generic component.
   const extendedItem = displayExtended ?
     (
       <ExtendedContent

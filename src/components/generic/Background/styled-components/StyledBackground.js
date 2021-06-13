@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 const StyledBackground = styled.div`
 display: flex;
 flex-direction: column;
-background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.35)), url(${({ backgroundSrc }) => backgroundSrc}) top center / cover no-repeat;
+
+${({ backgroundSrc }) => (backgroundSrc === "" ? "" : `background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.35)), url(${backgroundSrc}) top center / cover no-repeat;`)}
 
 @media (max-width: 900px) {
   ${({ dontShowOnSmallViewPort }) => dontShowOnSmallViewPort && `background: none;`}

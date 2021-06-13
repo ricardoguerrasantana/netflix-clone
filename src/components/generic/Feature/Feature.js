@@ -1,23 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Background } from "../../../containers";
+import { Background } from "../..";
 
-function Feature({ backgroundSrc, dontShowOnSmallViewPort
-  , elements }) {
+function Feature({ backgroundSrc, dontShowOnSmallViewPort,  children }) {
   return (
     <Background
       backgroundSrc={backgroundSrc}
       dontShowOnSmallViewPort={dontShowOnSmallViewPort}
     >
-      {elements}
+      {children}
     </Background>
   );
 }
 
 Feature.propTypes = {
   backgroundSrc: PropTypes.string.isRequired,
+  children: PropTypes.element.isRequired,
   dontShowOnSmallViewPort: PropTypes.bool.isRequired,
-  elements: PropTypes.element.isRequired,
 }
 
 export default Feature;

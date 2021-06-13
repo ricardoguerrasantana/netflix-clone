@@ -6,7 +6,7 @@ import Debug from "debug";
 const log = Debug('App:CardContainer');
 log.log = console.log.bind(console);
 
-function CardContainer({ imageSrc, title, description , handleCardClick }) {
+function CardContainer({ alt , imageSrc, title, description , handleCardClick }) {
   log('Rendering...');
 
   const [displayDetail , setDisplayDetail] = useState(false);
@@ -28,6 +28,7 @@ function CardContainer({ imageSrc, title, description , handleCardClick }) {
 
   return (
     <Card
+      alt={alt}
       description={truncateDescription()}
       displayDetail={displayDetail} 
       handleCardClick={handleCardClick}
@@ -40,6 +41,7 @@ function CardContainer({ imageSrc, title, description , handleCardClick }) {
 }
 
 CardContainer.propTypes = {
+  alt: PropTypes.string,
   description: PropTypes.string,
   handleCardClick: PropTypes.func.isRequired,
   imageSrc: PropTypes.string.isRequired,
@@ -47,7 +49,8 @@ CardContainer.propTypes = {
 }
 
 CardContainer.defaultProps = {
-  description: ""
+  alt: "",
+  description: "",
 }
 
 export default memo(CardContainer);

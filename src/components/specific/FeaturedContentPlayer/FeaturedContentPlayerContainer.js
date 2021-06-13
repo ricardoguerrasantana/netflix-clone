@@ -4,7 +4,7 @@ log.log = console.log.bind(console);
 
 import React, { memo } from 'react';
 import { buttons } from "../../../constants/ui-text";
-import { Player } from "../../../containers";
+import { Player } from "../..";
 
 function FeaturedContentPayerContainer() {
   log('Rendering...');

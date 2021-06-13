@@ -29,7 +29,7 @@ const StyledButton = styled.button`${({ styles, to }) => (
     padding: 16px;
     cursor: ${to === "#" ? "default" : "pointer"};
     font-weight: bold;
-    margin: 24px 0 12px;
+    margin: 12px 0;
 
     &:disabled {
       opacity: 0.5;

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Container } from './styled-components';
-import { Button, Video } from '../../../containers';
+import { Button, Video } from '../..';
 
 function Player({ buttonStyles , buttonText, displayVideo, handleButtonClick, handleCloseIcon, handleOverlayClick, videoId, videoSource, videoType }) {
   return (

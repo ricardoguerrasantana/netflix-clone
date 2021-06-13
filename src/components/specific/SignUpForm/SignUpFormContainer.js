@@ -1,0 +1,117 @@
+import Debug from "debug";
+const log = Debug('App:SignUpFormContainer');
+log.log = console.log.bind(console);
+
+import React, { memo, useState } from 'react';
+import { useHistory } from "react-router";
+import { global, signUpPage } from "../../../constants/ui-text";
+import { Form, LargeSignUpButton } from "../..";
+import { useFirebase } from "../../../hooks";
+import { Link } from './styled-components';
+import * as ROUTES from '../../../constants/routes';
+
+function SignUpFormContainer() {
+  log('Rendering...');
+
+  const history = useHistory();
+  const firebase = useFirebase();
+
+  const [firstName, setFirstName] = useState('');
+  const [emailAddress, setEmailAddress] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
+  function handleSignUpClick(event) {
+    event.preventDefault();
+
+    return firebase
+      .auth()
+      .createUserWithEmailAndPassword(emailAddress, password)
+      .then((result) =>
+        result.user
+          .updateProfile({
+            displayName: firstName,
+            photoURL: global.profilePhotoURLs[Math.floor(Math.random() * 5)], // Notice that this index is a number from 0 to 4 that targets 1 of 5 URLs in the array. -1 is not needed in this formula.
+          })
+          .then(() => {
+            history.push(ROUTES.BROWSE);
+          }))
+      .catch((err) => {
+        setError(err.message);
+      });
+  }
+
+
+
+  function handleEmailAddressInputChange({ target }) {
+    setEmailAddress(target.value);
+  }
+
+  function handleFirstNameInputChange({ target }) {
+    setFirstName(target.value);
+  }
+
+  function handlePasswordInputChange({ target }) {
+    setPassword(target.value);
+  }
+
+  const inputs = [
+    {
+      key: "firstName",
+      type: "text",
+      autoComplete: "on",
+      placeholder: global.firstNamePlaceholder,
+      value: firstName,
+      handleChange: handleFirstNameInputChange
+    },
+    {
+      key: "emailAddress",
+      type: "email",
+      autoComplete: "on",
+      placeholder: global.emailPlaceholder,
+      value: emailAddress,
+      handleChange: handleEmailAddressInputChange
+    },
+    {
+      key: "password",
+      type: "password",
+      autoComplete: "off",
+      placeholder: global.passwordPlaceholder,
+      value: password,
+      handleChange: handlePasswordInputChange
+    },
+  ]
+
+  const text = (
+    <span>
+      {signUpPage.text}
+
+      <Link to={ROUTES.SIGN_IN}>
+        {signUpPage.signInLink}
+      </Link>
+    </span>
+  );
+
+  const singUpButtonDisabled = password === '' || emailAddress === '' || firstName === '';
+  const button = (
+    <LargeSignUpButton
+      disabled={singUpButtonDisabled}
+      type="submit"
+    />
+  );
+
+  return (
+    <Form
+      button={button}
+      error={error}
+      handleSubmitClick={handleSignUpClick}
+      inputs={inputs}
+      placeholder={global.firstNamePlaceholder}
+      subtext={signUpPage.subtext}
+      text={text}
+      title={signUpPage.main}
+    />
+  );
+}
+
+export default memo(SignUpFormContainer);

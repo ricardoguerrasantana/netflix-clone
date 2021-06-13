@@ -1,4 +1,4 @@
-export { default as HomePage } from './HomePageContainer';
 export { default as BrowsePage } from './BrowsePage/BrowsePageContainer';
-export { default as SignInPage } from './SignInPage';
-export { default as SignUpPage } from './SignUpPage';
+export { default as HomePage } from './HomePage/HomePageContainer';
+export { default as SignInPage } from './SignInPage/SignInPageContainer';
+export { default as SignUpPage } from './SignUpPage/SignUpPageContainer';

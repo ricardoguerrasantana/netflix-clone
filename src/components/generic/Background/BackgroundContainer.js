@@ -26,7 +26,7 @@ BackgroundContainer.propTypes = {
 }
 
 BackgroundContainer.defaultProps = {
-  backgroundSrc: null ,
+  backgroundSrc: "" ,
 }
 
 export default memo(BackgroundContainer);

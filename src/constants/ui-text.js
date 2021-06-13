@@ -71,22 +71,18 @@ export const homePage = {
   },
 }
 
-export const singInPage = {
+export const signInPage = {
   main: "Sign In",
-  text: {
-    "1": "New to Netflix?",
-    "2": "Sign up now."
-  },
-  textSmall: "This page is protected by Google reCAPTCHA to ensure you're not a bot. Learn more."
+  text: "New to Netflix?" ,
+  signUpLink: "Sign up now.",
+  subtext: "This page is protected by Google reCAPTCHA to ensure you're not a bot. Learn more."
 };
 
-export const singUpPage = {
+export const signUpPage = {
   main: "Sign Up",
-  text: {
-    "1": "Already a user?",
-    "2": "Sign in now."
-  },
-  textSmall: "This page is protected by Google reCAPTCHA to ensure you're not a bot. Learn more."
+  text: "Already a user?",
+  signInLink: "Sign in now.",
+  subtext: "This page is protected by Google reCAPTCHA to ensure you're not a bot. Learn more."
 };
 
 export const browsePage = {

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FooterLinks , ContentSlideRow, FeaturedContent } from '../../../containers';
+import { FooterLinks , ContentSlideRow, FeaturedContent } from '../..';
 import { SlideRows } from './styled-components';
 
 function Content({ selectedItem, setSelectedItem, term, slideRows }) {

@@ -8,7 +8,7 @@ import {
   ProfileSelection,
   LoadingProfile,
   Content,
-} from "../../containers";
+} from "../../components";
 
 function BrowsePage({ loading, setLoading, profile }) {
   log('Rendering BrowsePage...');

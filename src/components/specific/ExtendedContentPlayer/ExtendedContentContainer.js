@@ -4,7 +4,7 @@ log.log = console.log.bind(console);
 
 import React, { memo } from 'react';
 import { browsePage } from "../../../constants/ui-text";
-import { Player } from "../../../containers";
+import { Player } from "../..";
 
 function ExtendedContentPlayerContainer() {
   log('Rendering...');

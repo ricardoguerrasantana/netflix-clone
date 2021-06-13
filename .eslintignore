@@ -1,37 +1,6 @@
 # src/app.js
 # src/helpers/
-# src/helpers/protectRoute.js
 # src/pages/
 # src/hooks/
 # src/components/
-src/components/Accordion.js
-# src/components/NavBar.js
-src/components/Feature.js
-src/components/Footer.js
-src/components/Form.js
-src/components/Header.js
-src/components/Jumbotron.js
-src/components/Loading.js
-src/components/Model/
-# src/components/NavBar.js
-src/components/OptForm.js
-src/components/Player.js
-src/components/Profiles.js
-# src/components/SearchBar.js
-# src/components/SlideRow.js
 # src/containers/
-# src/containers/NavBarContainer.js
-# src/pages/BrowsePage/BrowsePageContainer.js
-# src/pages/BrowsePage/BrowsePage.js
-# src/containers/ContentContainer.js
-src/containers/FaqsContainer.js
-src/containers/FooterContainer.js
-src/containers/HeaderContainer.js
-src/containers/JumbotronContainer.js
-# src/containers/LoadingContainer.js
-src/containers/MainContainer.js
-src/containers/ModelContainer.js
-src/containers/OptFormContainer.js
-# src/containers/ProfilesContainer.js
-src/containers/SignInContainer.js
-src/containers/SignUpContainer.js

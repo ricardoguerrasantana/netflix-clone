@@ -1,7 +1,7 @@
 import React , { memo, useState } from 'react';
 import PropTypes from 'prop-types';
 import { DropdownMenu } from './DropdownMenu';
-import { Icon , Menu } from '../../../containers';
+import { Icon , Menu } from '../..';
 
 import Debug from "debug";
 const log = Debug('App:DropdownMenuContaier');
