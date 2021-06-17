@@ -1,46 +1,36 @@
+import Debug from 'debug';
+const log = Debug('App:RedirectRoute');
+log.log = console.log.bind(console);
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Route, Redirect } from 'react-router-dom';
-import { useAuthUser } from '../hooks';
+import { useProfileList } from '../hooks';
 
-function RedirectRoute({ loggedInPath , children , path }) {
-  const authUser = useAuthUser();
+function RedirectRoute({ authPath, children, noAuthPath }) {
+  log("Rendering...");
 
-  if (!authUser) {
-    return (
-      <Route
-        exact
-        path={path}
-      >
-        {children}
-      </Route>
-    );
-  }
+  const profileList = useProfileList();
+  log("profileList" , profileList);
 
-  if (authUser) {
-    return (
-      <Route
-        exact
-        path={path}
-      >
+  return (
+    <Route
+      exact
+      path={noAuthPath}
+    >
+      {profileList && profileList.length > 0 ?
         <Redirect
-          push 
-          to={loggedInPath}
-        />
-      </Route>
-    );
-  }
-
-  return null;
+          push
+          to={authPath}
+        /> : children}
+    </Route>
+  );
 }
 
 RedirectRoute.propTypes = {
-  children: PropTypes.element.isRequired ,
-  loggedInPath: PropTypes.string.isRequired , 
-  path: PropTypes.string.isRequired , 
-};
-
-RedirectRoute.defaultProps = {
+  authPath: PropTypes.string.isRequired,
+  children: PropTypes.element.isRequired,
+  noAuthPath: PropTypes.string.isRequired,
 };
 
 export default RedirectRoute;

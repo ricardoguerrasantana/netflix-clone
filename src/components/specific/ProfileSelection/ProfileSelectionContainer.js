@@ -5,38 +5,37 @@ log.log = console.log.bind(console);
 import React, { memo } from 'react';
 import ProfileSelection from './ProfileSelection';
 import { Profile, TopBar } from "../.."
-import { useAuthUser, useSetProfile } from "../../../hooks";
+import { useProfileList, useSetProfile } from "../../../hooks";
 import { browsePage } from "../../../constants/ui-text";
 
 function ProfileSelectionContainer() {
   log('Rendering...');
 
-  const user = useAuthUser();
+  const profileList = useProfileList();
   const setProfile = useSetProfile();
 
-  function handleProfileClick() {
-    setProfile({
-      displayName: user.displayName,
-      photoURL: user.photoURL,
-    });
-  }
-
-  const element = (
-    <Profile
-      handleProfileClick={handleProfileClick}
-      pictureSrc={user.photoURL}
-      profileName={user.displayName}
-    />
-  );
-
-  const profiles = [
-    {
-      key: user.displayName,
-      element,
-    }
-  ];
-
   const navBar = (<TopBar mode='justLogo' />);
+
+  const profiles = profileList.map(profile => {
+
+    function handleProfileClick() {
+      setProfile(profile);
+    }
+
+    const element = (
+      <Profile
+        handleProfileClick={handleProfileClick}
+        pictureSrc={profile.photoURL}
+        profileName={profile.displayName}
+      />
+    );
+
+    return {
+      key: profile.displayName,
+      element,
+    };
+  });
+
 
   return (
     <ProfileSelection
@@ -45,12 +44,6 @@ function ProfileSelectionContainer() {
       title={browsePage.title}
     />
   );
-}
-
-ProfileSelectionContainer.propTypes = {
-}
-
-ProfileSelectionContainer.defaultProps = {
 }
 
 export default memo(ProfileSelectionContainer);

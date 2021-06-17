@@ -1,6 +1,8 @@
 import { useContext } from 'react';
 import { SetCategoryContext } from '../contexts'
 
-export function useSetCategory() {
+function useSetCategory() {
   return useContext(SetCategoryContext);
 }
+
+export default useSetCategory;

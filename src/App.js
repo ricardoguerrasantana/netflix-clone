@@ -13,50 +13,60 @@ import {
 } from './pages';
 import * as ROUTES from './constants/routes';
 import { RedirectRoute, ProtectedRoute } from './helpers';
-import { AuthUserProvider } from './providers';
+import { AuthUserProvider, ProfileListProvider } from './providers';
 
 function App() {
   log('Rendering...');
-
-  const [authUser, setAuthUser] = useState(JSON.parse(localStorage.getItem('authUser')));
-  // log('authUser', authUser);
-
+  
+  const [authUser, setAuthUser] = useState(() => JSON.parse(localStorage.getItem('authUser')));
+  const [profileList , setProfileList] = useState(() => JSON.parse(localStorage.getItem('profileList')));
+  // const [authUser, setAuthUser] = useState(null);
+  log('authUser', authUser);
+  if (authUser && Object.hasOwnProperty.call(authUser, "providerData")) {
+    log('authUser.providerData', authUser.providerData);
+  }
+  
   return (
     <AuthUserProvider
       authUser={authUser}
       setAuthUser={setAuthUser}
     >
-      <Router>
+      <ProfileListProvider
+        profileList={profileList}
+        setProfileList={setProfileList}
+      >
+        <Router>
 
-        <RedirectRoute
-          loggedInPath={ROUTES.BROWSE}
-          path={ROUTES.HOME}
-        >
-          <HomePage />
-        </RedirectRoute>
+          <RedirectRoute
+            authPath={ROUTES.BROWSE}
+            noAuthPath={ROUTES.HOME}
+          >
+            <HomePage />
+          </RedirectRoute>
 
-        <ProtectedRoute
-          loggedInPath={ROUTES.SIGN_IN}
-          path={ROUTES.BROWSE}
-        >
-          <BrowsePage />
-        </ProtectedRoute>
+          <ProtectedRoute
+            authPath={ROUTES.BROWSE}
+            noAuthPath={ROUTES.SIGN_IN}
+          >
+            <BrowsePage />
+          </ProtectedRoute>
 
-        <RedirectRoute
-          loggedInPath={ROUTES.BROWSE}
-          path={ROUTES.SIGN_IN}
-        >
-          <SignInPage />
-        </RedirectRoute>
+          <RedirectRoute
+            authPath={ROUTES.BROWSE}
+            noAuthPath={ROUTES.SIGN_IN}
+          >
+            <SignInPage />
+          </RedirectRoute>
 
-        <Route
-          exact
-          path={ROUTES.SIGN_UP}
-        >
-          <SignUpPage />
-        </Route>
+          <Route
+            exact
+            path={ROUTES.SIGN_UP}
+          >
+            <SignUpPage />
+          </Route>
 
-      </Router>
+        </Router>
+      </ProfileListProvider>
     </AuthUserProvider>
   );
 }

@@ -1,6 +1,8 @@
 import { useContext } from 'react';
 import { ContentContext } from '../contexts'
 
-export function useContent() {
+function useContent() {
   return useContext(ContentContext);
 }
+
+export default useContent;

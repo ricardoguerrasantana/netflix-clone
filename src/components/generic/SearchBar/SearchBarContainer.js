@@ -1,7 +1,7 @@
-import React , { memo, useState } from 'react';
+import React , { memo, useEffect, useState } from 'react';
 import { SearchBar } from './SearchBar';
 import { browsePage } from '../../../constants/ui-text';
-import { useSetTerm, useTerm } from "../../../hooks";
+import { useCategory, useSetTerm, useTerm } from "../../../hooks";
 
 import Debug from "debug";
 const log = Debug('App:SearchBarContainer');
@@ -13,7 +13,12 @@ function SearchBarContainer() {
   const term = useTerm();
   const setTerm = useSetTerm();
   const [displayInput , setDisplayInput] = useState(false);
+  const category = useCategory();
 
+  useEffect(() => {
+    setTerm("");
+    setDisplayInput(false);
+  }, [category]);
 
   function onClickIcon() {
     setDisplayInput(displayInput => !displayInput);

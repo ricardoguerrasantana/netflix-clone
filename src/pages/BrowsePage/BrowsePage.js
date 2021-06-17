@@ -1,7 +1,3 @@
-import Debug from "debug";
-const log = Debug("App:BrowsePage");
-log.log = console.log.bind(console);
-
 import React from "react";
 import PropTypes from 'prop-types';
 import {
@@ -11,10 +7,9 @@ import {
 } from "../../components";
 
 function BrowsePage({ loading, setLoading, profile }) {
-  log('Rendering BrowsePage...');
   
   return (
-    profile.displayName ? (
+    profile ? (
       loading ?
         <LoadingProfile
           setLoading={setLoading}
@@ -28,8 +23,12 @@ function BrowsePage({ loading, setLoading, profile }) {
 
 BrowsePage.propTypes = {
   loading: PropTypes.bool.isRequired,
-  profile: PropTypes.objectOf(PropTypes.any).isRequired,
+  profile: PropTypes.objectOf(PropTypes.any),
   setLoading: PropTypes.func.isRequired,
+}
+
+BrowsePage.defaultProps = {
+  profile: null
 }
 
 export default BrowsePage;

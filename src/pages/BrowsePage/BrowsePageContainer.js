@@ -1,16 +1,16 @@
 /* eslint-disable react/jsx-max-depth */
 import Debug from 'debug';
+const log = Debug('App:BrowseContainer');
+log.log = console.log.bind(console);
+
 import React, { memo, useState } from "react";
 import BrowsePage from './BrowsePage';
 import { TermProvider, CategoryContentProvider, ProfileProvider } from '../../providers'
 
-
-const log = Debug('App:BrowseContainer');
-log.log = console.log.bind(console);
-
 function BrowsePageContainer() {
-  log('Rendering BrowseContainer...');
-  const [profile, setProfile] = useState({});
+  log('Rendering...');
+
+  const [profile, setProfile] = useState(null);
   const [content, setContent] = useState([]);
   const [category, setCategory] = useState('series');
   const [loading, setLoading] = useState(true);

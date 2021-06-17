@@ -1,6 +1,8 @@
 import { useContext } from 'react';
 import { SetTermContext } from '../contexts'
 
-export function useSetTerm() {
+function useSetTerm() {
   return useContext(SetTermContext);
 }
+
+export default useSetTerm;

@@ -1,44 +1,36 @@
+import Debug from 'debug';
+const log = Debug('App:ProtectedRoute');
+log.log = console.log.bind(console);
+
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { useAuthUser } from '../hooks';
+import { useProfileList } from '../hooks';
 
+function ProtectedRoute({ noAuthPath, children, authPath }) {
+  log("Rendering...");
 
-function ProtectedRoute({ loggedInPath , children , path}) {
-  const authUser = useAuthUser();
+  const profileList = useProfileList();
+  log("profileList" , profileList);
 
-  if (authUser) {
-    return (
-      <Route
-        exact
-        path={path}
-      >
-        {children}
-      </Route>
-    );
-  }
-
-  if (!authUser) {
-    return (
-      <Route
-        exact
-        path={path}
-      >
+  return (
+    <Route
+      exact
+      path={authPath}
+    >
+      {(profileList && profileList.length === 0) ?
         <Redirect
-          push 
-          to={loggedInPath}
-        />
-      </Route>
-    );
-  }
-
-  return null;
+          push
+          to={noAuthPath}
+        /> : children}
+    </Route>
+  );
 }
 
-ProtectedRoute.propTypes = { 
-  children: PropTypes.element.isRequired ,
-  loggedInPath: PropTypes.string.isRequired , 
-  path: PropTypes.string.isRequired , 
+ProtectedRoute.propTypes = {
+  authPath: PropTypes.string.isRequired,
+  children: PropTypes.element.isRequired,
+  noAuthPath: PropTypes.string.isRequired,
 }
 
 export default ProtectedRoute;

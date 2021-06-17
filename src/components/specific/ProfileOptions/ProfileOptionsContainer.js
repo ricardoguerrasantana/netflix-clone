@@ -13,10 +13,10 @@ function ProfileOptionsContainer() {
 
   const profile = useProfile();
   const firebase = useFirebase();
-  // console.log('firebase' , firebase);
 
   function handleSignOutClik() {
     firebase.auth().signOut();
+    log("AuthUser state has changed.");
   }
   
   const Profile = (

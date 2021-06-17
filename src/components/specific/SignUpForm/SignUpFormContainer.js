@@ -6,7 +6,9 @@ import React, { memo, useState } from 'react';
 import { useHistory } from "react-router";
 import { global, signUpPage } from "../../../constants/ui-text";
 import { Form, LargeSignUpButton } from "../..";
-import { useFirebase } from "../../../hooks";
+import { useFirebase
+  , useSetProfileList 
+} from "../../../hooks";
 import { Link } from './styled-components';
 import * as ROUTES from '../../../constants/routes';
 
@@ -15,6 +17,7 @@ function SignUpFormContainer() {
 
   const history = useHistory();
   const firebase = useFirebase();
+  const setProfileList = useSetProfileList();
 
   const [firstName, setFirstName] = useState('');
   const [emailAddress, setEmailAddress] = useState('');
@@ -27,16 +30,23 @@ function SignUpFormContainer() {
     return firebase
       .auth()
       .createUserWithEmailAndPassword(emailAddress, password)
-      .then((result) =>
-        result.user
+      .then((userCredential) => {
+        userCredential.user
           .updateProfile({
             displayName: firstName,
-            photoURL: global.profilePhotoURLs[Math.floor(Math.random() * 5)], // Notice that this index is a number from 0 to 4 that targets 1 of 5 URLs in the array. -1 is not needed in this formula.
+            photoURL: global.profilePhotoURLs[Math.floor(Math.random() * 5)], // Notice that this index is a number from 0 to 4 that targets 1 of 5 URLs in the array. +1 is not needed in this formula.
           })
           .then(() => {
+            log("=================");
+            log("profile has been updated.");
+            log("userCredential.user" , userCredential.user);
+            log("sign up button is setting profileList with updated profile.")
+            log("userCredential.user.providerData" , userCredential.user.providerData);
+            setProfileList(userCredential.user.providerData);
+            log("redirect to browse");
             history.push(ROUTES.BROWSE);
-          }))
-      .catch((err) => {
+          })
+      }).catch((err) => {
         setError(err.message);
       });
   }

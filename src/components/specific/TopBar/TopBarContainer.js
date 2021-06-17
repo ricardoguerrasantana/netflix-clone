@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { memo } from 'react';
-import { useAuthUser } from "../../../hooks";
+import { useProfile } from "../../../hooks";
 import {
   Logo,
   NavBar,
@@ -17,9 +17,9 @@ log.log = console.log.bind(console);
 function TopBarContainer({ mode }) {
   log('Rendering...');
 
-  const authUser = useAuthUser();
+  const profile = useProfile();
 
-  const displayMode = mode ? mode : authUser ? "loggedIn" : "loggedOut";
+  const displayMode = mode ? mode : profile ? "loggedIn" : "loggedOut";
 
   const left = (
     <>

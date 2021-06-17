@@ -1,6 +1,8 @@
 import { useContext } from 'react';
 import { SetProfileContext } from '../contexts'
 
-export function useSetProfile() {
+function useSetProfile() {
   return useContext(SetProfileContext);
 }
+
+export default useSetProfile;
