@@ -9,6 +9,7 @@ const MenuContainer = styled.div`
   right: 0px;
   background-color: black;
   // width: 100px;
+  // width: fit-content;
 `;
 
 MenuContainer.propTypes = {

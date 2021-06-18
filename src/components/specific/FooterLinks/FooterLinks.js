@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container , Title, Text } from './styled-components';
-import { GridRow } from '../..';
+import { Container, Title, Text } from './styled-components';
+import { GridRow } from '../../../components';
 
-function FooterLinks({ copyRight , rows , title }) {
+function FooterLinks({ copyRight, rows, title }) {
   return (
     <Container>
       <Title>
@@ -20,15 +20,15 @@ function FooterLinks({ copyRight , rows , title }) {
 }
 
 FooterLinks.propTypes = {
-  copyRight: PropTypes.string.isRequired ,
+  copyRight: PropTypes.string.isRequired,
   rows: PropTypes.arrayOf(PropTypes.shape({
     key: PropTypes.string.isRequired,
     items: PropTypes.arrayOf(PropTypes.shape({
       key: PropTypes.string.isRequired,
-      element: PropTypes.element.isRequired, 
+      element: PropTypes.element.isRequired,
     })).isRequired
   })).isRequired,
-  title: PropTypes.string.isRequired ,
+  title: PropTypes.string.isRequired,
 }
 
 FooterLinks.defaultProps = {

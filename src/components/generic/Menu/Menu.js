@@ -5,7 +5,7 @@ import {
   MenuContainer , 
 } from './styled-components';
 
-export function Menu({ options , displayMenu }) {
+function Menu({ options , displayMenu }) {
   return (
     <MenuContainer displayMenu={displayMenu} >
       {options.map((opt) => {
@@ -31,3 +31,5 @@ Menu.propTypes = {
     handleClick: PropTypes.func , 
   })).isRequired ,
 }
+
+export default Menu;

@@ -3,7 +3,7 @@ const log = Debug('App:ContentContainer');
 log.log = console.log.bind(console);
 
 import Fuse from 'fuse.js';
-import React, { useEffect, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { useContent, useTerm } from "../../../hooks";
 import { groupByGenre } from "../../../utils";
 import Content from './Content'
@@ -54,4 +54,4 @@ function ContentContainer() {
   );
 }
 
-export default ContentContainer;
+export default memo(ContentContainer);

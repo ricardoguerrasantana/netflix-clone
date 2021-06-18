@@ -3,7 +3,7 @@ const log = Debug('App:LargeSignInButtonContainer');
 log.log = console.log.bind(console);
 
 import React, { memo } from 'react';
-import { Button } from '../..';
+import { Button } from '../../../components';
 import { buttons } from '../../../constants/ui-text';
 import * as ROUTES from '../../../constants/routes';
 import PropTypes from 'prop-types';

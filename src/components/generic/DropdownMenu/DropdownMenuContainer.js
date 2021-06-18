@@ -1,34 +1,34 @@
-import React , { memo, useState } from 'react';
+import React, { memo, useState } from 'react';
 import PropTypes from 'prop-types';
 import { DropdownMenu } from './DropdownMenu';
-import { Icon , Menu } from '../..';
+import { Icon, Menu } from '../../../components';
 
 import Debug from "debug";
 const log = Debug('App:DropdownMenuContaier');
 log.log = console.log.bind(console);
 
-function DropdownMenuContainer({ src , options }) {
+function DropdownMenuContainer({ src, options }) {
   log('Rendering...');
-  
-  const [displayMenu , setDisplayMenu] = useState(false);
+
+  const [displayMenu, setDisplayMenu] = useState(false);
 
   function handlePointerEnter() {
     return setDisplayMenu(true);
   }
-  
+
   function handlePointerLeave() {
     return setDisplayMenu(false);
   }
 
   return (
-    <DropdownMenu 
+    <DropdownMenu
       handlePointerEnter={handlePointerEnter}
       handlePointerLeave={handlePointerLeave}
-      icon={<Icon src={src} />} 
+      icon={<Icon src={src} />}
       menu={
-        <Menu 
-          display={displayMenu} 
-          options={options} 
+        <Menu
+          display={displayMenu}
+          options={options}
         />
       }
     />

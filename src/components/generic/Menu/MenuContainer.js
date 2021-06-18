@@ -1,6 +1,6 @@
 import React , { memo } from 'react';
 import PropTypes from 'prop-types';
-import { Menu } from './Menu';
+import Menu from './Menu';
 
 import Debug from "debug";
 const log = Debug('App:MenuContainer');

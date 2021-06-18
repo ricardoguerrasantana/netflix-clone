@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FooterLinks , ContentSlideRow, FeaturedContent } from '../..';
+import { FooterLinks , ContentSlideRow, FeaturedContent } from '../../../components';
 import { SlideRows } from './styled-components';
 
 function Content({ selectedItem, setSelectedItem, term, slideRows }) {
@@ -32,9 +32,6 @@ Content.propTypes = {
   setSelectedItem: PropTypes.func.isRequired , 
   slideRows: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.any)).isRequired , 
   term: PropTypes.string.isRequired , 
-}
-
-Content.defaultProps = {
 }
 
 export default Content;

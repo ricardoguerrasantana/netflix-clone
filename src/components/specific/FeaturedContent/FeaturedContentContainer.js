@@ -4,7 +4,7 @@ log.log = console.log.bind(console);
 
 import React, { memo } from 'react';
 import { browsePage } from "../../../constants/ui-text";
-import { Feature, FeaturedContentPlayer, TopBar } from "../..";
+import { Feature, FeaturedContentPlayer, TopBar } from "../../../components";
 import { Inner, CallOut, Text } from './styled-components';
 import { useTerm } from "../../../hooks";
 

@@ -15,8 +15,8 @@ function AuthUserProvider({ children, authUser, setAuthUser }) {
   useEffect(() => {
     log('Mounting authUser observer...');
 
-    const observer = firebase.auth().onAuthStateChanged(function(authUser) {
-      log("authUser observer is setting authUser");
+    const cleanUp = firebase.auth().onAuthStateChanged(function(authUser) {
+      log("authUser observer is setting up authUser");
       log("authUser" , authUser);
       if (authUser) {
         localStorage.setItem('authUser', JSON.stringify(authUser));
@@ -31,7 +31,7 @@ function AuthUserProvider({ children, authUser, setAuthUser }) {
 
     return () => {
       log("Unmounting authUser observer...");
-      observer();
+      cleanUp();
     };
   }, []);
 

@@ -18,7 +18,7 @@ const Option = styled.div`
   }
 
   img {
-    margin-right: 5px;
+    margin-right: 10px;
   }
 `;
 

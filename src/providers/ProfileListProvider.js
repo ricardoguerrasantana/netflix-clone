@@ -15,8 +15,8 @@ function ProfileListProvider({ children , profileList , setProfileList }) {
   useEffect(() => {
     log("Mounting profileList observer...");
 
-    const observer = firebase.auth().onAuthStateChanged(function (authUser) {
-      log("profileList observer is setting profileList");
+    const cleanUp = firebase.auth().onAuthStateChanged(function (authUser) {
+      log("profileList observer is setting up profileList");
       
       const validProfileList = [];
       if (authUser) {
@@ -43,7 +43,7 @@ function ProfileListProvider({ children , profileList , setProfileList }) {
 
     return () => {
       log("Unmounting profileList Observer");
-      observer();
+      cleanUp();
     }
   }, []);
 

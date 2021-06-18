@@ -5,7 +5,7 @@ log.log = console.log.bind(console);
 import React, { memo, useState } from 'react';
 import { useHistory } from "react-router";
 import { global, signInPage } from "../../../constants/ui-text";
-import { Form, LargeSignInButton } from "../..";
+import { Form, LargeSignInButton } from '../../../components';
 import { useFirebase } from "../../../hooks";
 import { Link } from './styled-components';
 import * as ROUTES from '../../../constants/routes';
@@ -25,7 +25,7 @@ function SignInFormContainer() {
 
     return firebase
       .auth()
-      .signInWithEmailAndPassword(emailAddress , password)
+      .signInWithEmailAndPassword(emailAddress, password)
       .then(() => {
         history.push(ROUTES.BROWSE);
       })

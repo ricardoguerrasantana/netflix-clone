@@ -8,7 +8,7 @@ import {
   SearchBar,
   OptionBar,
   ProfileOptions,
-} from '../..';
+} from '../../../components';
 
 import Debug from "debug";
 const log = Debug('App:TopBarContainer');

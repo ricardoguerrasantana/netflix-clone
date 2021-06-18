@@ -19,12 +19,10 @@ function App() {
   log('Rendering...');
   
   const [authUser, setAuthUser] = useState(() => JSON.parse(localStorage.getItem('authUser')));
-  const [profileList , setProfileList] = useState(() => JSON.parse(localStorage.getItem('profileList')));
   // const [authUser, setAuthUser] = useState(null);
   log('authUser', authUser);
-  if (authUser && Object.hasOwnProperty.call(authUser, "providerData")) {
-    log('authUser.providerData', authUser.providerData);
-  }
+  const [profileList , setProfileList] = useState(() => JSON.parse(localStorage.getItem('profileList')));
+  log('profileList', profileList);
   
   return (
     <AuthUserProvider
