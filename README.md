@@ -14,7 +14,7 @@ State is managed with Context mechanism and useContext hook.
 Higher order component Rect.memo is used for rendering container components not because is needed in every case but to prepare them to be used by larger applications, specially those components called "generics" wich were built to be highly reusable and scalable.
 Mechanisms as useMemo and useCallback hooks were not needed to be implemented due there is not expensive caculations to memoize between renders and the use of "eslint-plugin-react" rules avoids need to using useCallback in this app.
 
-# Material Source
+## Material Source
 Material and guiedance were provided by Karl Hadwen at https://www.youtube.com/watch?v=x_EEwGe-a9o, however this app uses a different approach regarding the way of structuring it.
 Thanks Karl for spreading knowledge.
 
