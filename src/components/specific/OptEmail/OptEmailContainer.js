@@ -4,12 +4,27 @@ log.log = console.log.bind(console);
 
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
-import { OptForm } from "../..";
+import { OptForm } from '../../../components';
 import { Title, SubTitle, Text } from './styled-components';
-import { homePage } from "../../../constants/ui-text";
+import { global, homePage } from "../../../constants/ui-text";
+import { useOptFormEmail, useSetOptFormEmail } from "../../../hooks";
+import { useHistory } from "react-router-dom";
+import * as ROUTES from '../../../constants/routes';
 
 function OptEmailContainer({ hideHeader, hideFooter }) {
   log('Rendering...');
+
+  const setOptFormEmail = useSetOptFormEmail();
+  const optFormEmail = useOptFormEmail();
+  const history = useHistory();
+
+  function handleEmailInputChange({ target }) {
+    setOptFormEmail(target.value);
+  }
+
+  function handleSubmit() {
+    history.push(ROUTES.SIGN_UP);
+  }
 
   const header = hideHeader ? null :
     (
@@ -35,7 +50,12 @@ function OptEmailContainer({ hideHeader, hideFooter }) {
   return (
     <OptForm
       footer={footer}
+      handleInputChange={handleEmailInputChange}
+      handleSubmit={handleSubmit}
       header={header}
+      inputPlaceholder={global.emailPlaceholder}
+      inputType="email"
+      inputValue={optFormEmail}
     />
   );
 }

@@ -9,9 +9,10 @@ This app implements technologies like "styled-components" for UI styling, "prop-
 As best practices, this app follows React patterns such as separating presentational components from display components and component composition. It also implements PropTypes checking and "eslint-plugin-react" rules.
 
 ## React Tools
-The entire app is built with functional components, hooks and custom hooks.  
-State is managed with Context mechanism and useContext hook.
+The entire app is built with functional components, hooks and custom hooks. State is managed with Context mechanism and useContext hook.
+
 Higher order component Rect.memo is used for rendering container components not because is needed in every case but to prepare them to be used by larger applications, specially those components called "generics" which were built to be highly reusable and scalable.
+
 It was not necessary to implement mechanisms like useMemo and useCallback because there are no expensive calculations to memorize between renderings and the use of the "eslint-plugin-react" rules avoids the need to use useCallback in this application.
 
 ## Material Source

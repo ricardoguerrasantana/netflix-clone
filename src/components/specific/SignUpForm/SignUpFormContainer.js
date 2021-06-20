@@ -6,10 +6,7 @@ import React, { memo, useState } from 'react';
 import { useHistory } from "react-router";
 import { global, signUpPage } from "../../../constants/ui-text";
 import { Form, LargeSignUpButton } from '../../../components';
-import {
-  useFirebase
-  , useSetProfileList
-} from "../../../hooks";
+import { useFirebase , useOptFormEmail, useSetOptFormEmail, useSetProfileList } from "../../../hooks";
 import { Link } from './styled-components';
 import * as ROUTES from '../../../constants/routes';
 
@@ -19,9 +16,10 @@ function SignUpFormContainer() {
   const history = useHistory();
   const firebase = useFirebase();
   const setProfileList = useSetProfileList();
+  const optFormEmail = useOptFormEmail();
+  const setOptFormEmail = useSetOptFormEmail();
 
   const [firstName, setFirstName] = useState('');
-  const [emailAddress, setEmailAddress] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
@@ -30,7 +28,7 @@ function SignUpFormContainer() {
 
     return firebase
       .auth()
-      .createUserWithEmailAndPassword(emailAddress, password)
+      .createUserWithEmailAndPassword(optFormEmail, password)
       .then((userCredential) => {
         userCredential.user
           .updateProfile({
@@ -45,6 +43,7 @@ function SignUpFormContainer() {
             setProfileList(userCredential.user.providerData);
             log("redirect to browse");
             history.push(ROUTES.BROWSE);
+            setOptFormEmail('');
           })
       }).catch((err) => {
         setError(err.message);
@@ -54,7 +53,7 @@ function SignUpFormContainer() {
 
 
   function handleEmailAddressInputChange({ target }) {
-    setEmailAddress(target.value);
+    setOptFormEmail(target.value);
   }
 
   function handleFirstNameInputChange({ target }) {
@@ -75,11 +74,11 @@ function SignUpFormContainer() {
       handleChange: handleFirstNameInputChange
     },
     {
-      key: "emailAddress",
+      key: "optFormEmail",
       type: "email",
       autoComplete: "on",
       placeholder: global.emailPlaceholder,
-      value: emailAddress,
+      value: optFormEmail,
       handleChange: handleEmailAddressInputChange
     },
     {
@@ -102,7 +101,7 @@ function SignUpFormContainer() {
     </span>
   );
 
-  const singUpButtonDisabled = password === '' || emailAddress === '' || firstName === '';
+  const singUpButtonDisabled = password === '' || optFormEmail === '' || firstName === '';
   const button = (
     <LargeSignUpButton
       disabled={singUpButtonDisabled}

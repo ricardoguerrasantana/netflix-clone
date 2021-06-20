@@ -5,10 +5,10 @@ log.log = console.log.bind(console);
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import OptForm from './OptForm';
-import { buttons, global, homePage } from "../../../constants/ui-text";
-import { Button } from "../..";
+import { buttons, homePage } from "../../../constants/ui-text";
+import { Button } from '../../../components';
 
-function OptFormContainer({ footer, handleSubmit, header }) {
+function OptFormContainer({ footer, handleInputChange, handleSubmit, header, inputType, inputPlaceholder , inputValue }) {
   log('Rendering...');
 
   const textButton = (
@@ -34,23 +34,34 @@ function OptFormContainer({ footer, handleSubmit, header }) {
     <OptForm
       button={button}
       footer={footer}
+      handleInputChange={handleInputChange}
       handleSubmit={handleSubmit}
       header={header}
-      inputPlaceholder={global.emailPlaceholder}
+      inputPlaceholder={inputPlaceholder}
+      inputType={inputType}
+      inputValue={inputValue}
     />
   );
 }
 
 OptFormContainer.propTypes = {
   footer: PropTypes.element,
+  handleInputChange: PropTypes.func,
   handleSubmit: PropTypes.func,
   header: PropTypes.element,
+  inputPlaceholder: PropTypes.string,
+  inputType: PropTypes.string,
+  inputValue: PropTypes.string,
 }
 
 OptFormContainer.defaultProps = {
   footer: null,
-  handleSubmit: () => {},
+  handleInputChange: () => { },
+  handleSubmit: () => { },
   header: null,
+  inputPlaceholder: "",
+  inputType: "",
+  inputValue: ""
 }
 
 export default memo(OptFormContainer);

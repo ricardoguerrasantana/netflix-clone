@@ -5,7 +5,7 @@ log.log = console.log.bind(console);
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import { homePage } from "../../../constants/ui-text";
-import { Feature, TopBar } from "../..";
+import { Feature, TopBar } from '../../../components';
 
 function BasicFeatureContainer({ children }) {
   log('Rendering...');

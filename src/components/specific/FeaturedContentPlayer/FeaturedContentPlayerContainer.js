@@ -4,18 +4,18 @@ log.log = console.log.bind(console);
 
 import React, { memo } from 'react';
 import { buttons } from "../../../constants/ui-text";
-import { Player } from "../..";
+import { Player } from '../../../components';
 
 function FeaturedContentPayerContainer() {
   log('Rendering...');
 
   return (
-    <Player 
-      buttonStyles="featuredContentPlayer" 
-      buttonText={buttons.featureContentButtonText} 
-      videoId="ricflix-player" 
-      videoSource="/videos/bunny.mp4" 
-      videoType="video/mp4" 
+    <Player
+      buttonStyles="featuredContentPlayer"
+      buttonText={buttons.featureContentButtonText}
+      videoId="ricflix-player"
+      videoSource="/videos/bunny.mp4"
+      videoType="video/mp4"
     />
   );
 }

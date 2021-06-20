@@ -13,17 +13,18 @@ import {
 } from './pages';
 import * as ROUTES from './constants/routes';
 import { RedirectRoute, ProtectedRoute } from './helpers';
-import { AuthUserProvider, ProfileListProvider } from './providers';
+import { AuthUserProvider, OptFormEmailProvider, ProfileListProvider } from './providers';
 
 function App() {
   log('Rendering...');
-  
+
   const [authUser, setAuthUser] = useState(() => JSON.parse(localStorage.getItem('authUser')));
   // const [authUser, setAuthUser] = useState(null);
   log('authUser', authUser);
-  const [profileList , setProfileList] = useState(() => JSON.parse(localStorage.getItem('profileList')));
+  const [profileList, setProfileList] = useState(() => JSON.parse(localStorage.getItem('profileList')));
   log('profileList', profileList);
-  
+  const [optFormEmail, setOptFormEmail] = useState('');
+
   return (
     <AuthUserProvider
       authUser={authUser}
@@ -33,37 +34,42 @@ function App() {
         profileList={profileList}
         setProfileList={setProfileList}
       >
-        <Router>
+        <OptFormEmailProvider
+          optFormEmail={optFormEmail}
+          setOptFormEmail={setOptFormEmail}
+        >
+          <Router>
 
-          <RedirectRoute
-            authPath={ROUTES.BROWSE}
-            noAuthPath={ROUTES.HOME}
-          >
-            <HomePage />
-          </RedirectRoute>
+            <RedirectRoute
+              authPath={ROUTES.BROWSE}
+              noAuthPath={ROUTES.HOME}
+            >
+              <HomePage />
+            </RedirectRoute>
 
-          <ProtectedRoute
-            authPath={ROUTES.BROWSE}
-            noAuthPath={ROUTES.SIGN_IN}
-          >
-            <BrowsePage />
-          </ProtectedRoute>
+            <ProtectedRoute
+              authPath={ROUTES.BROWSE}
+              noAuthPath={ROUTES.SIGN_IN}
+            >
+              <BrowsePage />
+            </ProtectedRoute>
 
-          <RedirectRoute
-            authPath={ROUTES.BROWSE}
-            noAuthPath={ROUTES.SIGN_IN}
-          >
-            <SignInPage />
-          </RedirectRoute>
+            <RedirectRoute
+              authPath={ROUTES.BROWSE}
+              noAuthPath={ROUTES.SIGN_IN}
+            >
+              <SignInPage />
+            </RedirectRoute>
 
-          <Route
-            exact
-            path={ROUTES.SIGN_UP}
-          >
-            <SignUpPage />
-          </Route>
+            <Route
+              exact
+              path={ROUTES.SIGN_UP}
+            >
+              <SignUpPage />
+            </Route>
 
-        </Router>
+          </Router>
+        </OptFormEmailProvider>
       </ProfileListProvider>
     </AuthUserProvider>
   );

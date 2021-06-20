@@ -5,7 +5,11 @@ const Container = styled.form`
   flex-direction: column;
   text-align: center;
   padding: 165px 30px;
-  margin: 5%;
+  margin: 0 5%;
+  
+  @media (max-width: 1250px) {
+    padding: 100px 30px;
+  }
 
   @media (max-width: 600px) {
     padding: 0;

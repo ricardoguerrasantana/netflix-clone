@@ -4,12 +4,12 @@ log.log = console.log.bind(console);
 
 import React, { memo, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Loading } from "../..";
+import { Loading } from '../../../components';
 import { useProfile } from "../../../hooks";
 
 function LoadingProfileContainer({ setLoading }) {
   log('Rendering...');
-  
+
   const profile = useProfile();
 
   // Simulates loading profile data

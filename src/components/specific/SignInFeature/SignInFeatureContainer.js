@@ -3,7 +3,7 @@ const log = Debug('App:SignInFeatureContainer');
 log.log = console.log.bind(console);
 
 import React, { memo } from 'react';
-import { BasicFeature, SignInForm } from "../..";
+import { BasicFeature, SignInForm } from '../../../components';
 
 function SignInFeatureContainer() {
   log('Rendering...');
