@@ -10,6 +10,7 @@ function Video({ closeIconSrc , handleCloseIcon , handleOverlayClick , videoId ,
 
       <Inner>
         <video
+          autoPlay
           controls
           id={videoId}
         >
