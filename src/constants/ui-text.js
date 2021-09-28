@@ -15,8 +15,8 @@ export const global = {
 };
 
 export const buttons = {
-  signInButtonText: "Sing In",
-  signUpButtonText: "Sing Up",
+  signInButtonText: "Sign In",
+  signUpButtonText: "Sign Up",
   optFormAlt: "Try Now",
   optFormSrc: "/images/icons/chevron-right.png",
   featureContentButtonText: "Play",
